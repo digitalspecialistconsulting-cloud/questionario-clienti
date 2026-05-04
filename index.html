@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0046)file:///C:/Users/anton/Downloads/index_69.html -->
+<!-- saved from url=(0046)file:///C:/Users/anton/Downloads/index_70.html -->
 <html lang="it"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1144,45 +1144,18 @@ function updBtn(){
 function submit(){
   const btn=document.getElementById('btnNx');
   btn.textContent='Invio in corso...';btn.disabled=true;
-  const FID='2Xt6aKSe9';
   const areeSelezionate=Object.entries(selCards).filter(([k,v])=>v).map(([k])=>k).join(', ');
-
-  // Crea un form HTML nascosto e invialo — bypassa le restrizioni CORS di FormSpark
-  const form=document.createElement('form');
-  form.method='POST';
-  form.action=`https://submit-form.com/${FID}`;
-  form.target='formspark_iframe'; // invia in iframe invisibile
-
-  // Aggiungi tutti i dati come campi nascosti
-  const allData={tipo_cliente:uType, aree_interesse:areeSelezionate, ...ans};
-  Object.entries(allData).forEach(([key,val])=>{
-    if(val && key!=='_fileObj'){
-      const input=document.createElement('input');
-      input.type='hidden';
-      input.name=key;
-      input.value=Array.isArray(val)?val.join(', '):String(val);
-      form.appendChild(input);
-    }
-  });
-
-  // Aggiungi redirect dopo invio
-  const redirect=document.createElement('input');
-  redirect.type='hidden';
-  redirect.name='_redirect';
-  redirect.value='false';
-  form.appendChild(redirect);
-
-  // Crea iframe invisibile per ricevere la risposta
-  const iframe=document.createElement('iframe');
-  iframe.name='formspark_iframe';
-  iframe.style.display='none';
-  iframe.onload=()=>showTY();
-  document.body.appendChild(iframe);
-  document.body.appendChild(form);
-  form.submit();
-
-  // Mostra thank you dopo 2 secondi comunque
-  setTimeout(()=>showTY(), 2000);
+  const allData={tipo_cliente:uType,aree_interesse:areeSelezionate,...ans};
+  // Rimuovi oggetti file non serializzabili
+  delete allData._fileObj;
+  fetch('https://formspree.io/f/xaqveazw',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify(allData)
+  }).then(r=>{
+    if(r.ok) showTY();
+    else showTY();
+  }).catch(()=>showTY());
 }
 
 function showTY(){
