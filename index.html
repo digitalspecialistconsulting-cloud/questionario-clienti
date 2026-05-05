@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0046)file:///C:/Users/anton/Downloads/index_70.html -->
+<!-- saved from url=(0046)file:///C:/Users/anton/Downloads/index_83.html -->
 <html lang="it"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -144,6 +144,12 @@ html,body{min-height:100%;font-family:'Inter',system-ui,sans-serif;background:va
 .scale-lbs{display:flex;justify-content:space-between;font-size:11px;color:var(--g400)}
 .txt{width:100%;padding:12px 14px;border:1.5px solid var(--g200);border-radius:var(--r);font-family:inherit;font-size:14px;color:var(--g900);background:var(--white);resize:vertical;min-height:90px;outline:none;transition:border-color .15s}
 .txt:focus{border-color:var(--blue)}
+.datetime-wrap{display:flex;gap:12px;flex-wrap:wrap}
+.datetime-group{display:flex;flex-direction:column;gap:6px;flex:1;min-width:160px}
+.datetime-label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--g500)}
+.datetime-input{padding:11px 14px;border:1.5px solid var(--g200);border-radius:var(--r);font-family:inherit;font-size:14px;color:var(--g900);background:var(--white);outline:none;transition:border-color .15s;width:100%}
+.datetime-input:focus{border-color:var(--blue)}
+.datetime-input.filled{border-color:var(--blue);background:var(--blue-light)}
 .file-upload-area{margin-top:8px;border:1.5px dashed var(--g300);border-radius:var(--r);padding:14px 16px;background:var(--g50);display:flex;align-items:center;gap:12px;cursor:pointer;transition:all .15s}
 .file-upload-area:hover{border-color:var(--orange);background:var(--orange-light)}
 .file-upload-area input[type=file]{display:none}
@@ -843,13 +849,7 @@ const PRIORITY_SEC={
       {ic:'email', n:'Contatto via mail',d:'Preferisco la email'},
       {ic:'check', n:'Valuterò dopo la proposta',d:'Prima vedo, poi decido'},
     ]},
-    {id:'pr_orario',lbl:'Preferenza orario / giorno (facoltativo)',hint:'Visibile solo se hai scelto Chiamata, WhatsApp, Video call o In presenza.',type:'multi',conditional:'pr_contatto',condValues:['Chiamatemi','WhatsApp','Video call','In presenza'],opts:[
-      {ic:'flag',n:'Mattina (9–13)',d:''},
-      {ic:'flag',n:'Pomeriggio (14–18)',d:''},
-      {ic:'flag',n:'Lunedì–Mercoledì',d:''},
-      {ic:'flag',n:'Giovedì–Venerdì',d:''},
-      {ic:'flag',n:'Sabato mattina',d:''},
-    ]},
+    {id:'pr_orario',lbl:'Scegli data e ora preferita per l\'appuntamento',hint:'Seleziona quando vorresti essere contattato — ti riconfermeremo la disponibilità.',type:'datetime',conditional:'pr_contatto',condValues:['Chiamatemi','Video call','In presenza','WhatsApp']},
     {id:'pr_n',lbl:'Note libere (facoltativo)',hint:'Aggiungici qualcosa che non abbiamo chiesto — una scadenza, una situazione specifica, una domanda...',type:'textarea',ph:'Es. Contratto in scadenza a marzo, cerco alternativa a...'},
   ]
 };
@@ -968,6 +968,43 @@ function renderSec(sec,col,c){
         h+=`<button class="sbt ${sel?col.sc:''}" onclick="pickSc('${q.id}',${i},'${col.sc}')" data-qid="${q.id}">${i}</button>`;
       }
       h+=`</div><div class="scale-lbs"><span>${q.lbs[0]}</span><span>${q.lbs[1]}</span></div></div>`;
+    } else if(q.type==='datetime'){
+      const today=new Date().toISOString().split('T')[0];
+      const savedDate=ans[q.id+'_date']||'';
+      const savedTime=ans[q.id+'_time']||'';
+      h+=`<div class="datetime-wrap">
+        <div class="datetime-group">
+          <label class="datetime-label">📅 Data</label>
+          <input type="date" class="datetime-input ${savedDate?'filled':''}" id="dt_date_${q.id}" min="${today}" value="${savedDate}"
+            onchange="ans['${q.id}_date']=this.value; this.classList.toggle('filled',!!this.value); updateDateTimeAns('${q.id}'); checkDateTimeComplete('${q.id}')"/>
+        </div>
+        <div class="datetime-group">
+          <label class="datetime-label">🕐 Ora</label>
+          <select class="datetime-input ${savedTime?'filled':''}" id="dt_time_${q.id}"
+            onchange="ans['${q.id}_time']=this.value; this.classList.toggle('filled',!!this.value); updateDateTimeAns('${q.id}'); checkDateTimeComplete('${q.id}')">
+            <option value="">Seleziona orario</option>
+            <option value="08:30" ${savedTime==='08:30'?'selected':''}>08:30</option>
+            <option value="09:00" ${savedTime==='09:00'?'selected':''}>09:00</option>
+            <option value="09:30" ${savedTime==='09:30'?'selected':''}>09:30</option>
+            <option value="10:00" ${savedTime==='10:00'?'selected':''}>10:00</option>
+            <option value="10:30" ${savedTime==='10:30'?'selected':''}>10:30</option>
+            <option value="11:00" ${savedTime==='11:00'?'selected':''}>11:00</option>
+            <option value="11:30" ${savedTime==='11:30'?'selected':''}>11:30</option>
+            <option value="12:00" ${savedTime==='12:00'?'selected':''}>12:00</option>
+            <option value="14:00" ${savedTime==='14:00'?'selected':''}>14:00</option>
+            <option value="14:30" ${savedTime==='14:30'?'selected':''}>14:30</option>
+            <option value="15:00" ${savedTime==='15:00'?'selected':''}>15:00</option>
+            <option value="15:30" ${savedTime==='15:30'?'selected':''}>15:30</option>
+            <option value="16:00" ${savedTime==='16:00'?'selected':''}>16:00</option>
+            <option value="16:30" ${savedTime==='16:30'?'selected':''}>16:30</option>
+            <option value="17:00" ${savedTime==='17:00'?'selected':''}>17:00</option>
+            <option value="17:30" ${savedTime==='17:30'?'selected':''}>17:30</option>
+            <option value="18:00" ${savedTime==='18:00'?'selected':''}>18:00</option>
+            <option value="18:30" ${savedTime==='18:30'?'selected':''}>18:30</option>
+            <option value="19:00" ${savedTime==='19:00'?'selected':''}>19:00</option>
+          </select>
+        </div>
+      </div>`;
     } else if(q.type==='textarea'){
       h+=`<textarea class="txt" placeholder="${q.ph||''}" onchange="ans['${q.id}']=this.value">${ans[q.id]||''}</textarea>`;
       if(q.hasUpload){
@@ -1018,6 +1055,23 @@ function renderContact(c){
 ══════════════════════════════════════════════ */
 function esc(s){return s.replace(/'/g,"\\'")}
 
+function updateDateTimeAns(qid){
+  const date=ans[qid+'_date']||'';
+  const time=ans[qid+'_time']||'';
+  if(date&&time) ans[qid]=date+' alle '+time;
+  else if(date) ans[qid]=date;
+  else ans[qid]='';
+}
+
+function checkDateTimeComplete(qid){
+  const date=ans[qid+'_date']||'';
+  const time=ans[qid+'_time']||'';
+  // Quando entrambi compilati → avanza automaticamente alla pagina contatti
+  if(date&&time){
+    setTimeout(()=>goNext(), 500);
+  }
+}
+
 function handleFile(qid, input){
   if(input.files && input.files[0]){
     const f=input.files[0];
@@ -1062,12 +1116,22 @@ function pick(qid,type,val,sc,cm,cmid){
   // Ricarica sezione se cambia una domanda che ha condizionali collegati
   // Ricarica sezione se cambia una domanda che ha condizionali collegati
   if(qid==='sf_e'||qid==='pr_contatto'){
+
+    // Auto-avanza se sceglie opzione senza datetime (prima del re-render)
+    if(qid==='pr_contatto'){
+      const needsDatetime=['Chiamatemi','WhatsApp','Video call','In presenza'];
+      const hasDatetime=needsDatetime.includes(val);
+      if(!hasDatetime){
+        setTimeout(()=>goNext(), 420);
+        return;
+      }
+    }
+
     const scrollY=window.scrollY;
     render(cur);
     // Dopo il re-render: ripristina posizione e poi scrolla alla domanda successiva
     setTimeout(()=>{
       window.scrollTo({top:scrollY,behavior:'instant'});
-      // Trova il blocco della domanda appena cliccata e scrolla al prossimo
       const allBlocks=Array.from(document.querySelectorAll('.qb'));
       const thisBlock=document.querySelector(`[data-qid="${qid}"]`)?.closest('.qb');
       if(thisBlock){
@@ -1087,13 +1151,6 @@ function pick(qid,type,val,sc,cm,cmid){
   // Auto-avanza al form contatti dopo selezione orario
   if(qid==='pr_orario'){
     setTimeout(()=>goNext(), 500);
-  }
-
-  // Auto-avanza se sceglie opzione senza orario
-  if(qid==='pr_contatto'){
-    const needsOrario=['Chiamatemi','WhatsApp','Video call','In presenza'];
-    const hasOrario=needsOrario.includes(val);
-    if(!hasOrario) setTimeout(()=>goNext(), 420);
   }
 
   updBtn();
