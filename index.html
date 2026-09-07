@@ -1,1242 +1,586 @@
 <!DOCTYPE html>
-<!-- saved from url=(0046)file:///C:/Users/anton/Downloads/index_88.html -->
-<html lang="it"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="it">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Open Innovation — Soluzioni Business</title>
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="./index_files/css2" rel="stylesheet">
+<title>Open Innovation Consulting — Analizza gratis la tua telefonia aziendale</title>
+<meta name="description" content="Costi troppo alti, poca copertura o contratto in scadenza? Scopri in 1 minuto se puoi risparmiare su fibra e SIM aziendali. Analisi gratuita, nessun impegno.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@700;800&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --blue:#1459A8;--blue-dark:#0C3D7A;--blue-light:#EAF2FB;--blue-mid:#4A90D9;
-  --orange:#E07830;--orange-dark:#B85A18;--orange-light:#FEF3EB;--orange-mid:#F0996A;
-  --green:#1a7a4a;--green-light:#e8f7ef;--green-mid:#3aaa6a;
-  --purple:#6B3FA0;--purple-light:#F0EAF9;--purple-mid:#9B6FD0;
-  --pos:#1a1a1a;--pos-light:#f2f0ed;--pos-mid:#555;--pos-accent:#E07830;
-  --cons:#4A2C8F;--cons-light:#F0EBF9;--cons-mid:#7B55C0;
-  --g50:#F7F8FA;--g100:#EEF0F4;--g200:#DDE1E9;--g300:#C4CAD6;--g400:#9AA3B2;
-  --g500:#6B7585;--g700:#3D4654;--g900:#1A2030;--white:#fff;--r:10px;--rlg:16px;
-}
-html,body{min-height:100%;font-family:'Inter',system-ui,sans-serif;background:var(--g50);color:var(--g900);font-size:15px;line-height:1.55}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ── TOPBAR ── */
-.topbar{position:sticky;top:0;z-index:200;background:rgba(247,248,250,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--g200);height:60px;display:flex;align-items:center;padding:0 28px;gap:16px}
-.t-mark{width:36px;height:36px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center}
-.t-mark svg{width:20px;height:20px;fill:#fff}
-.t-name{font-size:15px;font-weight:700;color:var(--blue-dark);letter-spacing:-.02em}
-.t-name b{color:var(--orange)}
-.t-sep{width:1px;height:22px;background:var(--g200)}
-.t-sub{font-size:12px;color:var(--g400)}
-.t-right{margin-left:auto;display:flex;align-items:center;gap:14px}
-.t-step{font-size:12px;font-weight:600;color:var(--g500)}
-.t-pt{width:130px;height:3px;background:var(--g200);border-radius:3px;overflow:hidden}
-.t-pf{height:100%;border-radius:3px;transition:width .55s cubic-bezier(.4,0,.2,1)}
+  :root {
+    --orange: #E07830;
+    --orange-dark: #B85A18;
+    --orange-light: #FEF3EB;
+    --orange-mid: #F0996A;
+    --blue: #1459A8;
+    --blue-dark: #0C3D7A;
+    --blue-light: #EAF2FB;
+    --blue-mid: #4A90D9;
+    --wa: #25D366;
+    --wa-dark: #128C7E;
+    --wa-darker: #075E54;
+    --g50: #F7F8FA;
+    --g100: #EEF0F4;
+    --g200: #DDE1E9;
+    --g400: #9AA3B2;
+    --g600: #5A6475;
+    --g900: #1A2030;
+    --white: #ffffff;
+    --r: 14px;
+    --rlg: 20px;
+  }
 
-/* ── SCREEN BASE ── */
-.screen{display:none;animation:fu .4s ease both}
-.screen.active{display:block}
-@keyframes fu{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--white);
+    color: var(--g900);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
 
-/* ── WELCOME ── */
-.welcome-wrap{max-width:680px;margin:0 auto;padding:4rem 24px 8rem;text-align:center}
-.w-eye{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--g400);margin-bottom:1.25rem}
-.w-h1{font-size:clamp(28px,5vw,42px);font-weight:700;color:var(--g900);line-height:1.18;margin-bottom:1rem;letter-spacing:-.03em}
-.w-h1 em{font-style:normal;color:var(--blue)}
-.w-sub{font-size:16px;color:var(--g500);max-width:460px;margin:0 auto 3rem;line-height:1.7}
-.type-cards{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
-.tc{width:210px;padding:2rem 1.5rem;border:1.5px solid var(--g200);border-radius:var(--rlg);background:var(--white);cursor:pointer;transition:all .2s;text-align:center}
-.tc:hover{transform:translateY(-3px);box-shadow:0 6px 28px rgba(20,89,168,.12)}
-.tc.or:hover{box-shadow:0 6px 28px rgba(224,120,48,.12)}
-.tc-ic{width:60px;height:60px;border-radius:16px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center}
-.tc-ic svg{width:30px;height:30px;fill:#fff}
-.tc-lb{font-size:17px;font-weight:700;color:var(--g900);margin-bottom:6px}
-.tc-sb{font-size:12px;color:var(--g400);line-height:1.4}
+  /* ── TOPBAR ── */
+  .topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--g100);
+    padding: 0 28px;
+    height: 62px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-mark {
+    width: 36px; height: 36px; border-radius: 9px;
+    background: var(--orange);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .brand-mark svg { width: 20px; height: 20px; fill: white; }
+  .brand-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px; font-weight: 700;
+    color: var(--blue-dark);
+    letter-spacing: -0.02em;
+  }
+  .brand-name span { color: var(--orange); }
+  .partner-divider {
+    width: 1px; height: 24px;
+    background: var(--g200);
+    margin: 0 2px;
+  }
+  .partner-logo {
+    height: 26px;
+    width: auto;
+    display: block;
+  }
+  .partner-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  .partner-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--g400);
+    line-height: 1;
+  }
+  .btn-wa-sm {
+    display: flex; align-items: center; gap: 6px;
+    padding: 9px 16px;
+    background: var(--wa);
+    color: white; font-size: 13px; font-weight: 700;
+    border-radius: 8px; text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 2px 10px rgba(37,211,102,0.35);
+  }
+  .btn-wa-sm:hover { background: var(--wa-dark); transform: translateY(-1px); }
+  .btn-wa-sm svg { width: 16px; height: 16px; fill: white; }
 
-/* ── SERVICE SELECTOR ── */
-.sel-wrap{max-width:780px;margin:0 auto;padding:2.5rem 24px 7rem}
-.sel-header{text-align:center;margin-bottom:2.5rem}
-.sel-eye{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--g400);margin-bottom:.75rem}
-.sel-h2{font-size:clamp(22px,4vw,32px);font-weight:700;color:var(--g900);letter-spacing:-.02em;margin-bottom:.6rem}
-.sel-sub{font-size:14px;color:var(--g500);line-height:1.6;max-width:520px;margin:0 auto}
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(150deg, var(--blue-dark) 0%, #1B5FAA 55%, #2A7FD4 100%);
+    padding: 72px 24px 88px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 85% 15%, rgba(37,211,102,0.14) 0%, transparent 65%),
+                radial-gradient(ellipse 60% 50% at 15% 85%, rgba(224,120,48,0.16) 0%, transparent 60%);
+  }
+  .hero-inner { position: relative; max-width: 700px; margin: 0 auto; }
 
-/* Main service grid */
-.srv-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 40px;
+    padding: 6px 16px;
+    font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.88);
+    letter-spacing: 0.04em;
+    margin-bottom: 26px;
+    text-transform: uppercase;
+  }
+  .hero-badge-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--orange-mid);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
-/* Service card */
-.srv-card{border:2px solid var(--g200);border-radius:var(--rlg);background:var(--white);cursor:pointer;transition:all .2s;overflow:hidden;position:relative}
-.srv-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08)}
-.srv-card.active-card{border-color:var(--card-color, var(--blue));box-shadow:0 4px 24px rgba(0,0,0,.1)}
-.srv-card-inner{padding:1.5rem}
-.srv-card-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:.75rem}
-.srv-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
-.srv-icon svg{width:24px;height:24px;fill:#fff}
-.srv-card-title{font-size:16px;font-weight:700;color:var(--g900);line-height:1.25;margin-bottom:4px}
-.srv-card-desc{font-size:12px;color:var(--g500);line-height:1.45}
-.srv-check{width:22px;height:22px;border-radius:50%;border:2px solid var(--g300);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-left:auto;transition:all .2s}
-.srv-check svg{width:12px;height:12px;fill:#fff;opacity:0;transition:opacity .15s}
-.srv-card.active-card .srv-check{border-color:var(--card-color, var(--blue));background:var(--card-color, var(--blue))}
-.srv-card.active-card .srv-check svg{opacity:1}
+  .hero h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(28px, 5.2vw, 48px);
+    font-weight: 800;
+    color: white;
+    line-height: 1.14;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--orange-mid);
+  }
+  .hero-sub {
+    font-size: clamp(15px, 2vw, 17px);
+    color: rgba(255,255,255,0.75);
+    max-width: 540px;
+    margin: 0 auto 20px;
+    line-height: 1.65;
+  }
 
-/* Security card — special with sub-menu */
-.srv-card.security-card{grid-column:1/-1}
-.security-card .srv-card-inner{padding-bottom:.75rem}
-.sub-area{padding:.75rem 1.5rem 1.25rem;border-top:1px solid var(--g100);display:none;gap:12px}
-.sub-area.open{display:flex}
-.sub-box{flex:1;border:1.5px solid var(--g200);border-radius:var(--r);padding:1rem 1.25rem;cursor:pointer;transition:all .2s;background:var(--g50);position:relative}
-.sub-box:hover{border-color:var(--g400)}
-.sub-box.active-sub{border-color:var(--card-color, var(--blue));background:var(--white)}
-.sub-box-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.sub-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.sub-icon svg{width:18px;height:18px;fill:#fff}
-.sub-box-title{font-size:13px;font-weight:700;color:var(--g900);line-height:1.3}
-.sub-box-desc{font-size:11px;color:var(--g500);line-height:1.4}
-.sub-check{position:absolute;top:10px;right:10px;width:18px;height:18px;border-radius:50%;border:1.5px solid var(--g300);display:flex;align-items:center;justify-content:center;transition:all .2s}
-.sub-check svg{width:9px;height:9px;fill:#fff;opacity:0;transition:opacity .15s}
-.sub-box.active-sub .sub-check{border-color:var(--card-color, var(--blue));background:var(--card-color, var(--blue))}
-.sub-box.active-sub .sub-check svg{opacity:1}
+  /* Pain point chips */
+  .pain-chips {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    justify-content: center;
+    margin: 0 auto 40px;
+    max-width: 560px;
+  }
+  .pain-chip {
+    font-size: 12.5px; font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 6px 13px;
+    border-radius: 20px;
+  }
 
-/* Validation hint */
-.sel-hint{text-align:center;font-size:12px;color:var(--g400);margin-top:1.5rem;padding:10px;background:var(--g100);border-radius:8px;display:none}
-.sel-hint.show{display:block}
+  /* ── CTA BUTTONS ── */
+  .cta-group {
+    display: flex; flex-direction: column; gap: 14px;
+    align-items: center;
+    max-width: 460px;
+    margin: 0 auto;
+  }
 
-/* ── SECTION LAYOUT ── */
-.s-bar{height:4px;width:100%}
-.sw{max-width:760px;margin:0 auto;padding:2.5rem 24px 7rem}
-.s-eye{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.6rem}
-.s-eye .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.s-title{font-size:clamp(20px,3.5vw,28px);font-weight:700;color:var(--g900);letter-spacing:-.02em;line-height:1.2;margin-bottom:.4rem}
-.s-desc{font-size:13px;color:var(--g400);margin-bottom:2rem}
-.ql{display:flex;flex-direction:column;gap:2.25rem}
-.qb{display:flex;flex-direction:column;gap:10px}
-.q-lbl{font-size:15px;font-weight:600;color:var(--g900)}
-.q-hint{font-size:12px;color:var(--g400);margin-top:-4px}
-.og{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:9px}
-.opt{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border:1.5px solid var(--g200);border-radius:var(--r);background:var(--white);cursor:pointer;transition:all .15s;text-align:left;font-family:inherit;width:100%}
-.opt:hover{border-color:var(--g300);background:var(--g50)}
-.oi{width:38px;height:38px;border-radius:9px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:background .15s}
-.oi svg{width:19px;height:19px;fill:#fff}
-.ot{display:flex;flex-direction:column;gap:2px;min-width:0}
-.on{font-size:13px;font-weight:600;color:var(--g900);line-height:1.3}
-.od{font-size:11px;color:var(--g400);line-height:1.35}
-.opt.sb{border-color:var(--blue);background:var(--blue-light)}
-.opt.sb .on{color:var(--blue-dark)}
-.opt.so{border-color:var(--orange);background:var(--orange-light)}
-.opt.so .on{color:var(--orange-dark)}
-.opt.sg{border-color:var(--green);background:var(--green-light)}
-.opt.sg .on{color:var(--green)}
-.opt.sp{border-color:var(--purple);background:var(--purple-light)}
-.opt.sp .on{color:var(--purple)}
-.opt.sk{border-color:var(--pos);background:var(--pos-light)}
-.opt.sk .on{color:var(--pos)}
-.opt.sc{border-color:var(--cons);background:var(--cons-light)}
-.opt.sc .on{color:var(--cons)}
-.scale-wrap{display:flex;flex-direction:column;gap:8px}
-.scale-btns{display:flex;gap:6px}
-.sbt{width:48px;height:48px;border:1.5px solid var(--g200);border-radius:8px;background:var(--white);font-family:inherit;font-size:15px;font-weight:600;color:var(--g500);cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center}
-.sbt:hover{border-color:var(--g400)}
-.sbt.sb{background:var(--blue);border-color:var(--blue);color:#fff}
-.sbt.so{background:var(--orange);border-color:var(--orange);color:#fff}
-.sbt.sg{background:var(--green);border-color:var(--green);color:#fff}
-.sbt.sp{background:var(--purple);border-color:var(--purple);color:#fff}
-.sbt.sk{background:var(--pos);border-color:var(--pos);color:#fff}
-.sbt.sc{background:var(--cons);border-color:var(--cons);color:#fff}
-.scale-lbs{display:flex;justify-content:space-between;font-size:11px;color:var(--g400)}
-.txt{width:100%;padding:12px 14px;border:1.5px solid var(--g200);border-radius:var(--r);font-family:inherit;font-size:14px;color:var(--g900);background:var(--white);resize:vertical;min-height:90px;outline:none;transition:border-color .15s}
-.txt:focus{border-color:var(--blue)}
-.datetime-wrap{display:flex;gap:12px;flex-wrap:wrap}
-.datetime-group{display:flex;flex-direction:column;gap:6px;flex:1;min-width:160px}
-.datetime-label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--g500)}
-.datetime-input{padding:11px 14px;border:1.5px solid var(--g200);border-radius:var(--r);font-family:inherit;font-size:14px;color:var(--g900);background:var(--white);outline:none;transition:border-color .15s;width:100%}
-.datetime-input:focus{border-color:var(--blue)}
-.datetime-input.filled{border-color:var(--blue);background:var(--blue-light)}
-.file-upload-area{margin-top:8px;border:1.5px dashed var(--g300);border-radius:var(--r);padding:14px 16px;background:var(--g50);display:flex;align-items:center;gap:12px;cursor:pointer;transition:all .15s}
-.file-upload-area:hover{border-color:var(--orange);background:var(--orange-light)}
-.file-upload-area input[type=file]{display:none}
-.file-upload-icon{width:36px;height:36px;border-radius:8px;background:var(--orange-mid);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.file-upload-icon svg{width:18px;height:18px;fill:#fff}
-.file-upload-text{font-size:13px;color:var(--g700);line-height:1.4}
-.file-upload-text strong{display:block;font-weight:600;color:var(--g900);margin-bottom:2px}
-.file-upload-text span{font-size:11px;color:var(--g400)}
-.file-name-tag{display:inline-flex;align-items:center;gap:6px;background:var(--orange-light);border:1px solid var(--orange);border-radius:6px;padding:4px 10px;font-size:12px;color:var(--orange-dark);font-weight:500;margin-top:6px}
+  .btn-wa-main {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 20px 32px;
+    background: linear-gradient(135deg, #25D366 0%, #1EBE5A 100%);
+    color: white;
+    font-size: 18px; font-weight: 800;
+    border-radius: var(--r);
+    text-decoration: none;
+    box-shadow: 0 10px 36px rgba(37,211,102,0.5);
+    transition: all 0.22s;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+  }
+  .btn-wa-main:hover {
+    background: linear-gradient(135deg, #22c15e 0%, #1AAD52 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 44px rgba(37,211,102,0.6);
+  }
+  .btn-wa-main svg { width: 24px; height: 24px; fill: white; flex-shrink: 0; }
+  .btn-wa-main .sub {
+    display: block; font-size: 11px; font-weight: 600;
+    opacity: 0.85; margin-top: 1px; letter-spacing: 0.01em;
+  }
+  .btn-wa-main .label-wrap { text-align: left; }
 
-/* ── BOTTOM NAV ── */
-.bnav{position:fixed;bottom:0;left:0;right:0;background:rgba(247,248,250,.97);backdrop-filter:blur(12px);border-top:1px solid var(--g200);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;z-index:200}
-.btn-bk{padding:10px 22px;border:1.5px solid var(--g200);border-radius:8px;background:transparent;font-family:inherit;font-size:14px;font-weight:500;color:var(--g500);cursor:pointer;transition:all .15s}
-.btn-bk:hover{border-color:var(--g400);color:var(--g900)}
-.btn-nx{padding:11px 28px;border:none;border-radius:8px;font-family:inherit;font-size:14px;font-weight:600;color:#fff;cursor:pointer;transition:all .15s;background:var(--blue)}
-.btn-nx:hover{opacity:.9;transform:translateY(-1px)}
-.btn-nx:disabled{opacity:.35;cursor:not-allowed;transform:none}
+  .or-divider {
+    display: flex; align-items: center; gap: 12px;
+    width: 100%; color: rgba(255,255,255,0.4);
+    font-size: 12px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .or-divider::before, .or-divider::after {
+    content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.18);
+  }
 
-/* ── CONTACT FORM ── */
-.cw{max-width:620px;margin:0 auto;padding:2.5rem 24px 7rem}
-.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:1.5rem}
-.fgrid .full{grid-column:1/-1}
-.fg{display:flex;flex-direction:column;gap:6px}
-.fg label{font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--g500)}
-.fg input{padding:11px 14px;border:1.5px solid var(--g200);border-radius:var(--r);font-family:inherit;font-size:14px;color:var(--g900);background:var(--white);outline:none;transition:border-color .15s}
-.fg input:focus{border-color:var(--blue)}
-.fg input.opt-f{background:var(--g50)}
-.prv{font-size:12px;color:var(--g400);line-height:1.6;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--g200)}
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #E07830 0%, #C4631F 100%);
+    border: 1.5px solid #E07830;
+    color: white;
+    font-family: 'Sora', sans-serif;
+    font-size: 15px; font-weight: 700;
+    border-radius: var(--r);
+    text-decoration: none;
+    transition: all 0.22s;
+    width: 100%;
+    justify-content: center;
+    box-shadow: 0 8px 28px rgba(224,120,48,0.4);
+  }
+  .btn-secondary:hover {
+    background: linear-gradient(135deg, #C4631F 0%, #B85A18 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 34px rgba(224,120,48,0.5);
+  }
+  .btn-secondary svg { width: 19px; height: 19px; fill: white; flex-shrink: 0; }
 
-/* ── THANK YOU ── */
-.ty{max-width:480px;margin:0 auto;padding:5rem 24px;text-align:center}
-.ty-ic{width:72px;height:72px;border-radius:50%;margin:0 auto 2rem;display:flex;align-items:center;justify-content:center;background:var(--blue)}
-.ty-ic svg{width:36px;height:36px;fill:#fff}
-.ty h2{font-size:28px;font-weight:700;letter-spacing:-.02em;margin-bottom:1rem}
-.ty p{font-size:15px;color:var(--g500);line-height:1.7}
+  .cta-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 6px;
+  }
 
-/* ── RESPONSIVE ── */
-@media(max-width:600px){
-  .srv-grid{grid-template-columns:1fr}
-  .security-card{grid-column:1}
-  .sub-area{flex-direction:column}
-  .og{grid-template-columns:1fr}
-  .fgrid{grid-template-columns:1fr}
-  .fgrid .full{grid-column:1}
-  .type-cards{flex-direction:column;align-items:center}
-  .t-sep,.t-sub,.t-pt{display:none}
-  .sw,.cw,.sel-wrap{padding:2rem 16px 6rem}
-}
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--g50);
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--g100);
+  }
+  .trust-inner {
+    max-width: 800px; margin: 0 auto;
+    display: flex; flex-wrap: wrap; gap: 18px;
+    justify-content: center; align-items: center;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 500; color: var(--g600);
+  }
+  .trust-item svg { width: 17px; height: 17px; flex-shrink: 0; }
+
+  /* ── SECTION ── */
+  .section { padding: 64px 24px; }
+  .section-inner { max-width: 860px; margin: 0 auto; }
+  .section-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--orange);
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  .section-title {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(22px, 3.5vw, 32px);
+    font-weight: 800; color: var(--g900);
+    letter-spacing: -0.025em; line-height: 1.2;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  .section-desc {
+    font-size: 15px; color: var(--g600);
+    max-width: 560px; line-height: 1.7;
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+
+  /* ── SEGNALI (pain points dettagliati) ── */
+  .signals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .signal-card {
+    background: var(--white);
+    border: 1.5px solid var(--g100);
+    border-radius: var(--r);
+    padding: 22px;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .signal-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--orange-light);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .signal-icon svg { width: 20px; height: 20px; fill: var(--orange); }
+  .signal-card h4 { font-size: 14px; font-weight: 700; color: var(--g900); margin-bottom: 3px; }
+  .signal-card p { font-size: 12.5px; color: var(--g600); line-height: 1.5; }
+
+  /* ── HOW IT WORKS ── */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  .step-card {
+    background: var(--g50);
+    border-radius: var(--rlg);
+    padding: 26px 22px;
+  }
+  .step-num {
+    width: 38px; height: 38px; border-radius: 10px;
+    background: var(--blue);
+    color: white;
+    font-size: 17px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 14px;
+    font-family: 'Sora', sans-serif;
+  }
+  .step-card h3 { font-size: 14.5px; font-weight: 700; color: var(--g900); margin-bottom: 7px; line-height: 1.3; }
+  .step-card p { font-size: 12.5px; color: var(--g600); line-height: 1.55; }
+
+  /* ── DOUBLE CTA SECTION ── */
+  .cta-section {
+    background: linear-gradient(135deg, var(--wa-darker) 0%, var(--wa-dark) 100%);
+    padding: 64px 24px;
+    text-align: center;
+  }
+  .cta-section h2 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(22px, 4vw, 34px);
+    font-weight: 800; color: white;
+    letter-spacing: -0.025em;
+    margin-bottom: 12px;
+  }
+  .cta-section > p {
+    font-size: 15px; color: rgba(255,255,255,0.82);
+    margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto;
+  }
+  .cta-final-wa {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 20px 40px;
+    background: white;
+    color: var(--wa-darker);
+    font-size: 18px; font-weight: 800;
+    border-radius: var(--r);
+    text-decoration: none;
+    box-shadow: 0 10px 36px rgba(0,0,0,0.2);
+    transition: all 0.22s;
+    margin-bottom: 18px;
+  }
+  .cta-final-wa:hover { transform: translateY(-2px); box-shadow: 0 14px 44px rgba(0,0,0,0.28); }
+  .cta-final-wa svg { width: 24px; height: 24px; fill: var(--wa); }
+  .cta-final-alt {
+    display: block;
+  }
+  .cta-final-alt a {
+    color: rgba(255,255,255,0.85);
+    font-size: 13.5px; font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .cta-final-alt a:hover { color: white; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--g900);
+    padding: 36px 24px;
+    text-align: center;
+  }
+  .footer-brand {
+    font-family: 'Sora', sans-serif;
+    font-size: 15px; font-weight: 700;
+    color: white; margin-bottom: 8px;
+  }
+  .footer-brand span { color: var(--orange); }
+  .footer-contact {
+    font-size: 13px; color: var(--g400);
+    margin-bottom: 14px; line-height: 1.7;
+  }
+  .footer-contact a { color: var(--wa); text-decoration: none; font-weight: 600; }
+  .footer-privacy {
+    font-size: 11px; color: #555e6e;
+    line-height: 1.6; max-width: 560px; margin: 0 auto;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .topbar { padding: 0 16px; }
+    .hero { padding: 48px 18px 60px; }
+    .section { padding: 48px 18px; }
+    .btn-wa-main, .btn-secondary { font-size: 15.5px; padding: 17px 20px; }
+    .trust-inner { gap: 12px; }
+    .pain-chips { gap: 6px; }
+    .pain-chip { font-size: 11.5px; padding: 5px 11px; }
+    .partner-divider { display: none; }
+    .partner-logo { height: 20px; }
+    .partner-label { font-size: 8px; }
+  }
+
+  @media (max-width: 420px) {
+    .brand-name { font-size: 13px; }
+    .partner-logo { height: 18px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
 </style>
 </head>
 <body>
 
 <!-- TOPBAR -->
 <header class="topbar">
-  <div class="t-mark" style="background:var(--orange)"><svg viewBox="0 0 24 24" fill="none">
-    <rect x="4" y="3" width="9" height="18" rx="1.5" stroke="white" stroke-width="1.4" fill="none"></rect>
-    <rect x="4" y="3" width="9" height="18" rx="1.5" fill="white" opacity="0.2"></rect>
-    <path d="M13 5L20 7.5V16.5L13 19" stroke="white" stroke-width="1.4" stroke-linejoin="round" fill="none"></path>
-    <circle cx="11" cy="12" r="1.2" fill="white"></circle>
-    <path d="M15 10L18.5 12L15 14" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
-  </svg></div>
-  <span class="t-name" style="color:#1042A0">Open<b style="color:#1042A0;font-weight:400"> Innovation Consulting</b></span>
-  <div class="t-sep"></div>
-  <span class="t-sub">Questionario di analisi</span>
-  <div class="t-right" id="tRight" style="display:none">
-    <span class="t-step" id="tStep"></span>
-    <div class="t-pt"><div class="t-pf" id="tPF" style="width:0%"></div></div>
+  <div class="brand">
+    <div class="brand-mark">
+      <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+    </div>
+    <div class="brand-name">Open <span>Innovation</span> Consulting</div>
+    <div class="partner-divider"></div>
+    <div class="partner-block">
+      <img class="partner-logo" src="data:image/png;base64,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" alt="WindTre Business">
+      <span class="partner-label">Partner</span>
+    </div>
   </div>
+  <a class="btn-wa-sm" href="https://wa.me/393351481883?text=Ciao%2C%20vorrei%20avere%20informazioni%20per%20cambiare%20operatore%20per%20la%20mia%20azienda." target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.552 4.103 1.513 5.832L.057 23.57a.5.5 0 00.608.65l5.988-1.586A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.663-.493-5.2-1.355l-.374-.214-3.876 1.027 1.002-3.757-.232-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    WhatsApp
+  </a>
 </header>
 
-<!-- SCREEN 1: WELCOME -->
-<div class="screen active" id="scr-w">
-  <div class="welcome-wrap">
-    <p class="w-eye">Soluzioni su misura per te</p>
-    <h1 class="w-h1">Scopriamo insieme<br>di cosa hai <em>bisogno</em></h1>
-    <p class="w-sub">Un breve questionario per capire le tue esigenze. Nessun impegno, solo le domande giuste per costruire la proposta più adatta a te.</p>
-    <div class="type-cards">
-      <div class="tc or" onclick="startAs(&#39;azienda&#39;)">
-        <div class="tc-ic" style="background:var(--orange)">
-          <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"></path></svg>
-        </div>
-        <div class="tc-lb">Azienda</div>
-        <div class="tc-sb">PMI, professionisti, imprese</div>
-      </div>
-      <div class="tc" onclick="startAs(&#39;privato&#39;)">
-        <div class="tc-ic" style="background:var(--blue)">
-          <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"></path></svg>
-        </div>
-        <div class="tc-lb">Privato</div>
-        <div class="tc-sb">Per uso personale o domestico</div>
-      </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      Analisi gratuita — nessun impegno
+    </div>
+    <h1>Stai valutando di cambiare<br><em>operatore business?</em></h1>
+    <p class="hero-sub">Costi troppo alti, poca copertura o contratto in scadenza? Scopri in 1 minuto se puoi risparmiare su fibra e SIM aziendali — senza impegno.</p>
+
+    <div class="pain-chips">
+      <span class="pain-chip">📶 SIM aziendali</span>
+      <span class="pain-chip">💰 Costi elevati</span>
+      <span class="pain-chip">📄 Contratto in scadenza</span>
+      <span class="pain-chip">📡 Copertura</span>
+      <span class="pain-chip">🎧 Assistenza</span>
+      <span class="pain-chip">🌐 Fibra</span>
+    </div>
+
+    <div class="cta-group">
+      <a class="btn-wa-main" href="https://wa.me/393351481883?text=Ciao%2C%20vorrei%20avere%20informazioni%20per%20cambiare%20operatore%20per%20la%20mia%20azienda." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.552 4.103 1.513 5.832L.057 23.57a.5.5 0 00.608.65l5.988-1.586A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.663-.493-5.2-1.355l-.374-.214-3.876 1.027 1.002-3.757-.232-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        <span class="label-wrap">Scrivici subito su WhatsApp<span class="sub">Risposta in giornata — parla con un consulente</span></span>
+      </a>
+
+      <div class="or-divider">oppure</div>
+
+      <a class="btn-secondary" href="/questionario.html">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+        Fai il questionario gratuito (1 minuto)
+      </a>
+      <p class="cta-note">Nessun costo · Nessun vincolo · Dati trattati secondo GDPR</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" style="fill:var(--wa)"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      Analisi gratuita e senza impegno
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" style="fill:var(--blue)"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+      Risposta rapida, anche in giornata
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" style="fill:var(--orange)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      Consulente locale — Verona e provincia
     </div>
   </div>
 </div>
 
-<!-- SCREEN 2: SERVICE SELECTOR -->
-<div class="screen" id="scr-sel">
-  <div class="sel-wrap">
-    <div class="sel-header">
-      <p class="sel-eye">Seleziona le aree di interesse</p>
-      <h2 class="sel-h2" id="selH2">Di cosa hai bisogno?</h2>
-      <p class="sel-sub" id="selSub">Scegli una o più aree su cui vorresti ricevere informazioni e una proposta. Puoi selezionare tutto ciò che ti interessa.</p>
+<!-- SEGNALI / PAIN POINTS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">Ti riconosci?</div>
+    <h2 class="section-title">Segnali che è il momento di controllare il tuo contratto</h2>
+    <p class="section-desc">Molte aziende scoprono di poter risparmiare o migliorare il servizio solo dopo un controllo. Ecco i segnali più comuni.</p>
+    <div class="signals-grid">
+      <div class="signal-card">
+        <div class="signal-icon"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
+        <div><h4>Bolletta troppo alta</h4><p>Paghi più della media per SIM aziendali o linea fissa rispetto a quello che offre oggi il mercato.</p></div>
+      </div>
+      <div class="signal-card">
+        <div class="signal-icon"><svg viewBox="0 0 24 24"><path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6h-5.6z"/></svg></div>
+        <div><h4>Contratto in scadenza</h4><p>Il rinnovo si avvicina ed è il momento migliore per confrontare le condizioni prima di firmare di nuovo.</p></div>
+      </div>
+      <div class="signal-card">
+        <div class="signal-icon"><svg viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3a4.237 4.237 0 00-6 0zm-4-4l2 2a7.074 7.074 0 0110 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg></div>
+        <div><h4>Copertura scarsa</h4><p>Zone dell'ufficio o della sede con campo debole, linea che cade o fibra che non arriva alla velocità promessa.</p></div>
+      </div>
+      <div class="signal-card">
+        <div class="signal-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+        <div><h4>Assistenza lenta</h4><p>Tempi di attesa lunghi o problemi che restano irrisolti per giorni con il tuo operatore attuale.</p></div>
+      </div>
+      <div class="signal-card">
+        <div class="signal-icon"><svg viewBox="0 0 24 24"><path d="M19.5 3.5L18 2H6L4.5 3.5V20.5L6 22h12l1.5-1.5V3.5zM13 18h-2v-2h2v2zm0-4h-2V8h2v6z"/></svg></div>
+        <div><h4>SIM da riorganizzare</h4><p>Piani diversi per ogni dipendente, nessuna gestione centralizzata, costi difficili da controllare.</p></div>
+      </div>
+      <div class="signal-card">
+        <div class="signal-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93z"/></svg></div>
+        <div><h4>Nessuna verifica recente</h4><p>Non controlli le condizioni del contratto da anni — il mercato nel frattempo è cambiato.</p></div>
+      </div>
     </div>
-
-    <div class="srv-grid">
-
-      <!-- 1. CONNETTIVITÀ — full width -->
-      <div class="srv-card security-card" id="card-conn" style="--card-color:var(--orange)" onclick="toggleCard(&#39;conn&#39;)">
-        <div class="srv-card-inner">
-          <div class="srv-card-head">
-            <div class="srv-icon" id="icon-conn" style="background:var(--orange-mid)">
-              <svg viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3a4.237 4.237 0 00-6 0zm-4-4l2 2a7.074 7.074 0 0110 0l2-2C15.14 9.14 8.87 9.14 5 13z"></path></svg>
-            </div>
-            <div>
-              <div class="srv-card-title">Connettività Fisso &amp; Mobile</div>
-              <div class="srv-card-desc">Fibra, FWA, 5G, SIM aziendali, centralino VoIP, backup connettività</div>
-            </div>
-            <div class="srv-check" id="chk-conn"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2. SICUREZZA EVOLUTA — full width with sub-boxes -->
-      <div class="srv-card security-card" id="card-sec" style="--card-color:var(--blue)" onclick="toggleSecurity(event)">
-        <div class="srv-card-inner">
-          <div class="srv-card-head">
-            <div class="srv-icon" id="icon-sec" style="background:var(--blue-mid)">
-              <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"></path></svg>
-            </div>
-            <div>
-              <div class="srv-card-title">Soluzioni di Sicurezza Evoluta</div>
-              <div class="srv-card-desc">Sistemi di allarme intelligenti, videosorveglianza AI, vigilanza, cyber security e protezione informatica</div>
-            </div>
-            <div class="srv-check" id="chk-sec"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg></div>
-          </div>
-        </div>
-        <!-- SUB-BOXES -->
-        <div class="sub-area" id="sub-area" style="--card-color:var(--blue)">
-          <div class="sub-box" id="sub-fisica" onclick="toggleSub(event,&#39;fisica&#39;)">
-            <div class="sub-check" id="schk-fisica"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg></div>
-            <div class="sub-box-head">
-              <div class="sub-icon" style="background:var(--blue-mid)">
-                <svg viewBox="0 0 24 24"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7L12 2z"></path></svg>
-              </div>
-              <div><div class="sub-box-title">Analisi sulla Sicurezza e<br>Protezione di Beni e Persone</div></div>
-            </div>
-            <div class="sub-box-desc">Impianti antintrusione intelligenti, videosorveglianza con AI, videoallarme, pattugliamento, intervento su allarme, controllo accessi, Bio Security</div>
-          </div>
-          <div class="sub-box" id="sub-cyber" onclick="toggleSub(event,&#39;cyber&#39;)">
-            <div class="sub-check" id="schk-cyber"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg></div>
-            <div class="sub-box-head">
-              <div class="sub-icon" style="background:var(--blue-mid)">
-                <svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"></path></svg>
-              </div>
-              <div><div class="sub-box-title">Analisi sulla<br>Sicurezza Informatica</div></div>
-            </div>
-            <div class="sub-box-desc">Endpoint protection, firewall gestito, anti-phishing, SOC H24, vulnerability management, GDPR/NIS2, formazione, consulenza cyber</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3. IOT & FLEET -->
-      <div class="srv-card" id="card-iot" style="--card-color:var(--orange)" onclick="toggleCard(&#39;iot&#39;)">
-        <div class="srv-card-inner">
-          <div class="srv-card-head">
-            <div class="srv-icon" id="icon-iot" style="background:var(--orange-mid)">
-              <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"></path></svg>
-            </div>
-            <div>
-              <div class="srv-card-title">IoT &amp; Fleet Management</div>
-              <div class="srv-card-desc">GPS flotta, dashcam, catena del freddo, sensori, asset tracking, SIM M2M</div>
-            </div>
-            <div class="srv-check" id="chk-iot"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4. WEB MARKETING -->
-      <div class="srv-card" id="card-web" style="--card-color:var(--green)" onclick="toggleCard(&#39;web&#39;)">
-        <div class="srv-card-inner">
-          <div class="srv-card-head">
-            <div class="srv-icon" id="icon-web" style="background:var(--green-mid)">
-              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"></path></svg>
-            </div>
-            <div>
-              <div class="srv-card-title">Web Marketing &amp; Digital</div>
-              <div class="srv-card-desc">Sito web, SEO, Google Ads, social media, presenza digitale, e-commerce</div>
-            </div>
-            <div class="srv-check" id="chk-web"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 5. CONSULTING & PRIVACY -->
-      <div class="srv-card" id="card-cons" style="--card-color:var(--cons);grid-column:1/-1" onclick="toggleCard(&#39;cons&#39;)">
-        <div class="srv-card-inner">
-          <div class="srv-card-head">
-            <div class="srv-icon" id="icon-cons" style="background:var(--cons-mid)">
-              <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"></path></svg>
-            </div>
-            <div>
-              <div class="srv-card-title">Consulting &amp; Privacy</div>
-              <div class="srv-card-desc">GDPR Full Compliance · DPO as a Service · CISO as a Service · NIS2 · ISO 27001 · Risk Assessment · Formazione · Security Academy</div>
-            </div>
-            <div class="srv-check" id="chk-cons"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 6. POS, CASSA & PAGAMENTI DIGITALI -->
-      <div class="srv-card" id="card-pos" style="--card-color:var(--pos);grid-column:1/-1" onclick="toggleCard(&#39;pos&#39;)">
-        <div class="srv-card-inner">
-          <div class="srv-card-head">
-            <div class="srv-icon" id="icon-pos" style="background:var(--pos-mid)">
-              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"></path></svg>
-            </div>
-            <div>
-              <div class="srv-card-title">POS, Cassa &amp; Pagamenti Digitali</div>
-              <div class="srv-card-desc">Lettori di carte, cassa gestionale, pagamenti contactless, Tap to Pay, negozio online, fatturazione</div>
-            </div>
-            <div class="srv-check" id="chk-pos"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div class="sel-hint" id="selHint">Seleziona almeno un'area di interesse per continuare.</div>
   </div>
-</div>
+</section>
 
-<!-- DYNAMIC SCREENS (questions) -->
-<div id="dynS"></div>
-
-<!-- BOTTOM NAV -->
-<div class="bnav" id="bnav" style="display:none">
-  <button class="btn-bk" id="btnBk" onclick="goBack()">← Indietro</button>
-  <button class="btn-nx" id="btnNx" onclick="goNext()">Avanti →</button>
-</div>
-
-<script>
-/* ══════════════════════════════════════════════
-   ICONS
-══════════════════════════════════════════════ */
-const IC={
-  fiber:`<svg viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3a4.237 4.237 0 00-6 0zm-4-4l2 2a7.074 7.074 0 0110 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>`,
-  mobile:`<svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>`,
-  sim:`<svg viewBox="0 0 24 24"><path d="M19.5 3.5L18 2H6L4.5 3.5V20.5L6 22h12l1.5-1.5V3.5zM13 18h-2v-2h2v2zm0-4h-2V8h2v6z"/></svg>`,
-  fiveg:`<svg viewBox="0 0 24 24"><path d="M15.5 5H11l-1 6h1c1.5-2 5.4-1.9 5.5 2 .1 3.4-3.5 5.1-6 3l-1.5 2c3.5 2.5 9.5.8 9.5-5 0-3.8-3.1-6.3-6.5-5.5L13 5h2.5V3H10l-1 8h3c1 0 2.5.5 2.5 2.5S12.5 16 11 15l-1.5 2C14 20 19 17 19 12.5c0-4-3.1-7-6-7H11l.5-3h4V5z"/></svg>`,
-  backup:`<svg viewBox="0 0 24 24"><path d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2v9.67z"/></svg>`,
-  ip:`<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>`,
-  phone:`<svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>`,
-  alarm:`<svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>`,
-  camera:`<svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>`,
-  shield:`<svg viewBox="0 0 24 24"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7L12 2z"/></svg>`,
-  lock:`<svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>`,
-  patrol:`<svg viewBox="0 0 24 24"><path d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C13 5.06 12.51 5 12 5c-.51 0-1 .06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z"/></svg>`,
-  fire:`<svg viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>`,
-  play:`<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>`,
-  drone:`<svg viewBox="0 0 24 24"><path d="M21 6h-3.17L16.17 4h-4.34L10.17 6H7c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7 11c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zM3 6h2V4H3c-1.1 0-2 .9-2 2v13h2V6z"/></svg>`,
-  cyber:`<svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>`,
-  monitor:`<svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>`,
-  email:`<svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>`,
-  wall:`<svg viewBox="0 0 24 24"><path d="M11 4.07V2h2v2.07C16.39 4.56 19 7.47 19 11H5c0-3.53 2.61-6.44 6-6.93zM5.84 13L4.5 22h15l-1.34-9H5.84zM12 18c-.83 0-1.5-.67-1.5-1.5S11.17 15 12 15s1.5.67 1.5 1.5S12.83 18 12 18z"/></svg>`,
-  doc:`<svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>`,
-  gps:`<svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>`,
-  temp:`<svg viewBox="0 0 24 24"><path d="M15 13V5c0-1.66-1.34-3-3-3S9 3.34 9 5v8c-1.21.91-2 2.37-2 4 0 2.76 2.24 5 5 5s5-2.24 5-5c0-1.63-.79-3.09-2-4zm-3 7c-1.65 0-3-1.35-3-3 0-1.3.84-2.4 2-2.82V5c0-.55.45-1 1-1s1 .45 1 1v9.18c1.16.42 2 1.52 2 2.82 0 1.65-1.35 3-3 3z"/></svg>`,
-  truck:`<svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>`,
-  vcam:`<svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>`,
-  sensor:`<svg viewBox="0 0 24 24"><path d="M12 4C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>`,
-  web:`<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>`,
-  euro:`<svg viewBox="0 0 24 24"><path d="M15 18.5c-2.51 0-4.68-1.42-5.76-3.5H15v-2H8.58c-.05-.33-.08-.66-.08-1s.03-.67.08-1H15V9H9.24C10.32 6.92 12.5 5.5 15 5.5c1.61 0 3.09.59 4.23 1.57L21 5.3C19.41 3.87 17.3 3 15 3c-3.92 0-7.24 2.51-8.48 6H3v2h3.06c-.04.33-.06.66-.06 1s.02.67.06 1H3v2h3.52c1.24 3.49 4.56 6 8.48 6 2.31 0 4.41-.87 6-2.3l-1.78-1.77C18.09 17.91 16.62 18.5 15 18.5z"/></svg>`,
-  flag:`<svg viewBox="0 0 24 24"><path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6h-5.6z"/></svg>`,
-  check:`<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>`,
-  person:`<svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>`,
-  wifi:`<svg viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3a4.237 4.237 0 00-6 0zm-4-4l2 2a7.074 7.074 0 0110 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>`,
-  waste:`<svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>`,
-  trend:`<svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6h-6z"/></svg>`,
-  ads:`<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>`,
-  social:`<svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>`,
-  seo:`<svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>`,
-  ecomm:`<svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96C5 16.1 6.9 18 9 18h12v-2H9.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63H19c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0023.46 5H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>`,
-  poscard:`<svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>`,
-  cash:`<svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>`,
-};
-
-/* ══════════════════════════════════════════════
-   STATE
-══════════════════════════════════════════════ */
-let uType=null, cur=0, activeScrs=[], ans={};
-let selCards={conn:false,web:false,iot:false,pos:false,cons:false,fisica:false,cyber:false};
-
-/* ══════════════════════════════════════════════
-   STEP 1 — choose privato/azienda
-══════════════════════════════════════════════ */
-function startAs(t){
-  uType=t;
-  document.getElementById('scr-w').classList.remove('active');
-
-  if(t==='privato'){
-    // Privato: vai direttamente alla sezione Sicurezza Fisica, salta il selettore
-    selCards={conn:false,web:false,iot:false,pos:false,fisica:true,cyber:false};
-    activeScrs=[ALL_SECTIONS.fisica];  // privato: solo sicurezza fisica → diretto al form contatti
-    document.getElementById('tRight').style.display='flex';
-    document.getElementById('bnav').style.display='flex';
-    cur=0;
-    render(0);
-  } else {
-    // Azienda: mostra il selettore completo
-    document.getElementById('scr-sel').classList.add('active');
-    document.getElementById('bnav').style.display='flex';
-    document.getElementById('btnBk').style.visibility='visible';
-    document.getElementById('btnNx').disabled=true;
-    document.getElementById('selH2').textContent='Di cosa hai bisogno?';
-    document.getElementById('selSub').textContent='Scegli una o più aree su cui vorresti ricevere informazioni e una proposta. Puoi selezionare tutto ciò che ti interessa.';
-    updSelBtn();
-  }
-}
-
-/* ══════════════════════════════════════════════
-   STEP 2 — service selector toggles
-══════════════════════════════════════════════ */
-function toggleCard(key){
-  selCards[key]=!selCards[key];
-  const card=document.getElementById('card-'+key);
-  const icon=document.getElementById('icon-'+key);
-  const colorMap={conn:'var(--orange)',web:'var(--green)',iot:'var(--orange)',pos:'var(--pos)',cons:'var(--cons)',sec:'var(--blue)'};
-  const midMap={conn:'var(--orange-mid)',web:'var(--green-mid)',iot:'var(--orange-mid)',pos:'var(--pos-mid)',cons:'var(--cons-mid)',sec:'var(--blue-mid)'};
-  if(selCards[key]){
-    card.classList.add('active-card');
-    icon.style.background=colorMap[key];
-  } else {
-    card.classList.remove('active-card');
-    icon.style.background=midMap[key];
-  }
-  updSelBtn();
-}
-
-function toggleSecurity(e){
-  const subArea=document.getElementById('sub-area');
-  const isOpen=subArea.classList.contains('open');
-  if(!isOpen){
-    subArea.classList.add('open');
-  }
-  updSelBtn();
-}
-
-function toggleSub(e,key){
-  e.stopPropagation();
-  selCards[key]=!selCards[key];
-  const box=document.getElementById('sub-'+key);
-  const schk=document.getElementById('schk-'+key);
-  const subIcon=box.querySelector('.sub-icon');
-  if(selCards[key]){
-    box.classList.add('active-sub');
-    schk.style.borderColor='var(--blue)';
-    schk.style.background='var(--blue)';
-    subIcon.style.background='var(--blue)';
-  } else {
-    box.classList.remove('active-sub');
-    schk.style.borderColor='';schk.style.background='';
-    subIcon.style.background='var(--blue-mid)';
-  }
-  const anySecSel=selCards.fisica||selCards.cyber;
-  const secCard=document.getElementById('card-sec');
-  const secIcon=document.getElementById('icon-sec');
-  if(anySecSel){
-    secCard.classList.add('active-card');
-    secIcon.style.background='var(--blue)';
-  } else {
-    secCard.classList.remove('active-card');
-    secIcon.style.background='var(--blue-mid)';
-  }
-  updSelBtn();
-}
-
-function updSelBtn(){
-  const any=selCards.conn||selCards.web||selCards.iot||selCards.pos||selCards.cons||selCards.fisica||selCards.cyber;
-  const btn=document.getElementById('btnNx');
-  const hint=document.getElementById('selHint');
-  btn.disabled=!any;
-  if(!any) hint.classList.add('show'); else hint.classList.remove('show');
-}
-
-/* ══════════════════════════════════════════════
-   BUILD active screen list based on selection
-══════════════════════════════════════════════ */
-const ALL_SECTIONS={
-  conn: {
-    id:'connettivita',eye:'Connettività Fisso & Mobile',title:'Rete e connessione internet',
-    color:'orange',desc:'Analizziamo la tua situazione attuale e le esigenze di connettività.',
-    qs:[
-      {id:'cn_t',lbl:'Che connessione utilizzi attualmente?',type:'multi',opts:[
-        {ic:'fiber',n:'Fibra ottica',d:'FTTH / FTTC'},{ic:'wifi',n:'FWA / Antenna radio',d:'Wireless'},{ic:'mobile',n:'4G / 5G',d:'Mobile'},{ic:'fiber',n:'ADSL',d:'Linea telefonica'},{ic:'check',n:'Non lo so'},{ic:'check',n:'Nessuna'},
-      ]},
-      {id:'cn_e',lbl:'Cosa vorresti migliorare o aggiungere rispetto alla tua situazione attuale?',type:'multi',opts:[
-        {ic:'fiber', n:'Passare a fibra più veloce',d:'FTTH / FTTC fino a 2,5 Gb/s'},
-        {ic:'backup',n:'Aggiungere una linea di backup',d:'Business continuity'},
-        {ic:'ip',    n:'IP statico / VPN',d:'Server e accesso remoto sicuro'},
-        {ic:'phone', n:'Sostituire il centralino con VoIP',d:'Telefonia su fibra'},
-        {ic:'web',   n:'Connettere più sedi',d:'Rete multi-sede'},
-        {ic:'wifi',  n:'Wi-Fi evoluta',d:'Mesh, rete guest, copertura totale'},
-        {ic:'web',   n:'Roaming e tariffe estero',d:'Utilizzo internazionale vantaggioso'},
-        {ic:'shield',n:'Sicurezza mobile e dei dati',d:'Navigazione protetta, MDM'},
-        {ic:'sim',   n:'Nuove SIM aziendali',d:'Aggiungere o sostituire SIM'},
-      ]},
-      {id:'mb_s',lbl:'Quante SIM aziendali utilizzi?',type:'radio',opts:[
-        {ic:'sim',n:'1–5 SIM'},{ic:'sim',n:'6–20 SIM'},{ic:'sim',n:'21–50 SIM'},{ic:'sim',n:'Oltre 50 SIM'},{ic:'sim',n:'Nessuna'},
-      ]},
-      {id:'cn_s',lbl:'Quanto sei soddisfatto della connessione, copertura e del servizio attuale?',type:'scale',min:1,max:5,lbs:['Per niente soddisfatto','Molto soddisfatto']},
-      {id:'cn_op',lbl:'Qual è il tuo operatore di provenienza mobile e/o fisso? (facoltativo)',hint:'Es. TIM, Vodafone, WindTre, Fastweb, Iliad... Lascia vuoto se preferisci non indicarlo.',type:'textarea',ph:'Es. Mobile: Vodafone — Fisso: TIM fibra...',hasUpload:true,uploadHint:'Hai una fattura o riepilogo tariffe? Allegala — ci permette di fare un\'analisi mirata e veloce (facoltativo, PDF o immagine).'},
-    ]
-  },
-  web: {
-    id:'web_marketing',eye:'Web Marketing & Digital',title:'Presenza digitale e marketing online',
-    color:'green',desc:'Capiamo la tua presenza online attuale e le opportunità di crescita digitale.',
-    qs:[
-      {id:'wm_att',lbl:'Hai già una presenza online?',type:'multi',opts:[
-        {ic:'web',n:'Sito web',d:'Già attivo'},{ic:'social',n:'Social media',d:'Pagine aziendali'},{ic:'ads',n:'Campagne pubblicitarie',d:'Google / Meta Ads'},{ic:'ecomm',n:'E-commerce',d:'Vendita online'},{ic:'check',n:'Nessuna presenza',d:'Da costruire'},
-      ]},
-      {id:'wm_sodd',lbl:'Quanto sei soddisfatto della tua presenza digitale attuale?',type:'scale',min:1,max:5,lbs:['Per niente','Molto soddisfatto']},
-      {id:'wm_esi',lbl:'Cosa ti interessa in ambito digital?',type:'multi',opts:[
-        {ic:'web',n:'Nuovo sito web',d:'Design e sviluppo'},{ic:'seo',n:'SEO / Posizionamento',d:'Google organico'},{ic:'ads',n:'Google Ads',d:'Campagne a pagamento'},{ic:'social',n:'Social media management',d:'Contenuti e community'},{ic:'trend',n:'Analytics e report',d:'Dati e performance'},{ic:'ecomm',n:'E-commerce',d:'Negozio online'},{ic:'email',n:'Email marketing',d:'Newsletter e automation'},{ic:'web',n:'Reputazione online',d:'Recensioni e brand'},
-      ]},
-      {id:'wm_budget',lbl:'Qual è il tuo budget mensile per il marketing digitale?',type:'radio',opts:[
-        {ic:'euro',n:'Fino a €500/mese'},{ic:'euro',n:'€500–1.500/mese'},{ic:'euro',n:'€1.500–5.000/mese'},{ic:'euro',n:'Oltre €5.000/mese'},{ic:'euro',n:'Da valutare'},
-      ]},
-      {id:'wm_note',lbl:'Note e osservazioni (facoltativo)',hint:'Raccontaci la tua situazione digitale attuale — cosa non funziona, obiettivi specifici, settore o target di clienti.',type:'textarea',ph:'Es. Abbiamo un sito vecchio di 8 anni, siamo su Instagram ma senza risultati, vogliamo aumentare le prenotazioni online...'},
-    ]
-  },
-  iot: {
-    id:'iot_fleet',eye:'IoT & Fleet Management',title:'Internet of Things e gestione flotta',
-    color:'orange',desc:'Monitora veicoli, asset, temperature e processi produttivi in tempo reale.',
-    qs:[
-      {id:'iot_v',lbl:'Gestisci una flotta di veicoli aziendali?',type:'radio',opts:[
-        {ic:'truck',n:'Sì, meno di 10 mezzi'},{ic:'truck',n:'Sì, 10–50 mezzi'},{ic:'truck',n:'Sì, oltre 50 mezzi'},{ic:'check',n:'No'},
-      ]},
-      {id:'iot_e',lbl:'Quali esigenze IoT hai?',type:'multi',opts:[
-        {ic:'gps',n:'Localizzazione GPS',d:'Veicoli e asset'},{ic:'temp',n:'Catena del freddo',d:'Temperatura merci'},{ic:'truck',n:'Tracciamento merci',d:'Container / semirimorchi'},{ic:'vcam',n:'Dashcam di bordo',d:'Telecamera veicolo'},{ic:'alarm',n:'Antifurto veicoli',d:'Allarme e SOS'},{ic:'sensor',n:'Sensori ambientali',d:'Magazzini e impianti'},{ic:'waste',n:'Gestione rifiuti smart',d:'Waste management'},
-      ]},
-      {id:'iot_s',lbl:'I tuoi dispositivi IoT richiedono SIM dati?',type:'radio',opts:[
-        {ic:'sim',n:'Sì, ho già SIM IoT'},{ic:'sim',n:'Sì, ne ho bisogno'},{ic:'wifi',n:'No, uso Wi-Fi'},{ic:'check',n:'Non lo so'},
-      ]},
-    ]
-  },
-  pos: {
-    id:'pos_cassa',eye:'POS, Cassa & Pagamenti Digitali',title:'Come accetti i pagamenti oggi?',
-    color:'pos',desc:'Analizziamo le tue esigenze di incasso, gestione cassa e pagamenti digitali.',
-    qs:[
-      {id:'pos_att',lbl:'Come accetti i pagamenti attualmente?',type:'multi',opts:[
-        {ic:'poscard',n:'POS bancario tradizionale',d:'Canone mensile fisso'},
-        {ic:'poscard',n:'POS a percentuale',d:'Commissioni su transato'},
-        {ic:'mobile', n:'Pagamenti via smartphone',d:'App o Tap to Pay'},
-        {ic:'ecomm',  n:'Pagamenti online',d:'E-commerce o link'},
-        {ic:'check',  n:'Non accetto ancora carte',d:'Voglio iniziare'},
-      ]},
-      {id:'pos_banca',lbl:'Se hai già un POS — istituto bancario e/o circuito (facoltativo)',hint:'Es. Nexi / Intesa, SumUp, Stripe, PayPal, banca X... Lascia vuoto se preferisci non indicarlo.',type:'textarea',ph:'Es. POS Nexi tramite Unicredit — circuito Visa/Mastercard...'},
-      {id:'pos_costo',lbl:'Costo o percentuale del tuo POS attuale (facoltativo)',type:'radio',opts:[
-        {ic:'euro',n:'Canone fisso mensile',d:'Es. €20–50/mese'},
-        {ic:'euro',n:'Solo percentuale sul transato',d:'Es. 1,5% – 2,5%'},
-        {ic:'euro',n:'Canone fisso + percentuale',d:'Modello misto'},
-        {ic:'euro',n:'Non so esattamente',d:'Non ho i dettagli'},
-        {ic:'check',n:'Preferisco non dire',d:''},
-      ]},
-      {id:'pos_prob',lbl:'Hai riscontrato problemi con il sistema attuale?',type:'multi',opts:[
-        {ic:'euro',   n:'Commissioni troppo alte',d:'Costi elevati per transazione'},
-        {ic:'alarm',  n:'Canoni fissi mensili',d:'Costi anche senza incassi'},
-        {ic:'mobile', n:'Mancanza di mobilità',d:'POS non portatile'},
-        {ic:'monitor',n:'Nessuna gestione prodotti',d:'Catalogo non digitale'},
-        {ic:'doc',    n:'Rendicontazione difficile',d:'Niente report di vendita'},
-        {ic:'check',  n:'Nessun problema',d:'Tutto funziona bene'},
-      ]},
-      {id:'pos_tipo',lbl:'Che tipo di attività gestisci?',type:'radio',opts:[
-        {ic:'web',    n:'Negozio / retail',d:'Punto vendita fisso'},
-        {ic:'patrol', n:'Bar / ristorante / café',d:'Food & beverage'},
-        {ic:'truck',  n:'Mercato / ambulante',d:'Vendita mobile'},
-        {ic:'person', n:'Servizi / professionista',d:'Parrucchiere, estetista...'},
-        {ic:'ecomm',  n:'E-commerce',d:'Vendita online'},
-        {ic:'check',  n:'Altro',d:'Settore diverso'},
-      ]},
-      {id:'pos_volume',lbl:'Qual è il tuo volume mensile di incassi con carta?',type:'radio',opts:[
-        {ic:'euro',n:'Meno di €1.000/mese'},
-        {ic:'euro',n:'€1.000–5.000/mese'},
-        {ic:'euro',n:'€5.000–20.000/mese'},
-        {ic:'euro',n:'Oltre €20.000/mese'},
-        {ic:'check',n:'Preferisco non dire'},
-      ]},
-      {id:'pos_esi',lbl:'Cosa ti interessa in ambito pagamenti?',type:'multi',opts:[
-        {ic:'poscard',n:'Lettore carte portatile',d:'Compatto e wireless'},
-        {ic:'monitor',n:'Cassa gestionale completa',d:'Schermo touch + POS integrato'},
-        {ic:'mobile', n:'Tap to Pay su smartphone',d:'Accetta carte senza hardware'},
-        {ic:'ecomm',  n:'Pagamenti via link',d:'Invia link al cliente'},
-        {ic:'web',    n:'Negozio online',d:'Vendi anche sul web'},
-        {ic:'doc',    n:'Fatturazione digitale',d:'Fatture elettroniche'},
-        {ic:'person', n:'Gestione dipendenti',d:'Profili e accessi staff'},
-        {ic:'trend',  n:'Report e analytics',d:'Statistiche di vendita'},
-      ]},
-      {id:'pos_metodi',lbl:'Quali metodi di pagamento vuoi accettare?',type:'multi',opts:[
-        {ic:'poscard',n:'Carte di credito / debito',d:'Visa, Mastercard'},
-        {ic:'mobile', n:'Apple Pay / Google Pay',d:'Wallet digitali'},
-        {ic:'sim',    n:'Contactless / NFC',d:'Tap con carta o phone'},
-        {ic:'cash',   n:'Contanti',d:'Gestione cassa fisica'},
-        {ic:'ecomm',  n:'Pagamenti online',d:'E-commerce'},
-        {ic:'doc',    n:'Bonifico / fattura',d:'Pagamenti differiti'},
-      ]},
-      {id:'pos_cassa_q',lbl:'Hai già un sistema di cassa gestionale?',type:'radio',opts:[
-        {ic:'monitor',n:'Sì, funzionante',d:'Lo uso ogni giorno'},
-        {ic:'monitor',n:'Sì, ma insoddisfacente',d:'Voglio qualcosa di meglio'},
-        {ic:'check',  n:'No, solo POS semplice',d:'Senza gestionale'},
-        {ic:'check',  n:'No, niente',d:'Parto da zero'},
-      ]},
-      {id:'pos_marca',lbl:'Se hai già una cassa — indica marca e/o modello (facoltativo)',hint:'Es. Cassa in Cloud, Lightspeed, Square, Yobu, registratore fiscale RT... Lascia vuoto se preferisci.',type:'textarea',ph:'Es. Registratore fiscale Epson RT + iPad con Cassa in Cloud...'},
-    ]
-  },
-  cons: {
-    id:'consulting_privacy',eye:'Consulting & Privacy',title:'Compliance, Privacy e Gestione del Rischio',
-    color:'cons',desc:'Analizziamo il tuo livello di conformità normativa e le esigenze di consulenza in ambito privacy e sicurezza delle informazioni.',
-    qs:[
-      {id:'co_dim',lbl:'Quanti dipendenti ha la tua azienda?',type:'radio',opts:[
-        {ic:'person', n:'Meno di 10',d:'Micro impresa'},
-        {ic:'person', n:'10–50',d:'Piccola impresa'},
-        {ic:'person', n:'51–250',d:'Media impresa'},
-        {ic:'person', n:'Oltre 250',d:'Grande impresa'},
-      ]},
-      {id:'co_sett',lbl:'In quale settore opera la tua azienda?',type:'radio',opts:[
-        {ic:'monitor',n:'IT / Tecnologia',d:'Software, servizi digitali'},
-        {ic:'truck',  n:'Logistica / Trasporti',d:'Spedizioni, flotte'},
-        {ic:'web',    n:'Retail / E-commerce',d:'Vendita prodotti'},
-        {ic:'patrol', n:'Sanità / Pharma',d:'Dati sanitari'},
-        {ic:'doc',    n:'Finance / Assicurazioni',d:'Dati finanziari'},
-        {ic:'monitor',n:'Pubblica Amministrazione',d:'Ente pubblico'},
-        {ic:'check',  n:'Altro settore',d:'Specificare in note'},
-      ]},
-      {id:'co_gdpr',lbl:'Qual è la tua situazione attuale rispetto al GDPR?',type:'radio',opts:[
-        {ic:'check',n:'Non ho ancora affrontato il tema',d:'Punto di partenza'},
-        {ic:'doc',  n:'Ho documentazione parziale',d:'Lavoro in corso'},
-        {ic:'shield',n:'Ho un registro trattamenti',d:'Base già presente'},
-        {ic:'cyber',n:'Ho già fatto un assessment',d:'Analisi effettuata'},
-        {ic:'check',n:'Sono già pienamente conforme',d:'GDPR compliant'},
-      ]},
-      {id:'co_prob',lbl:'Hai mai ricevuto o temi questi scenari?',type:'multi',opts:[
-        {ic:'alarm', n:'Richieste da interessati (DSAR)',d:'Diritti degli interessati'},
-        {ic:'email', n:'Violazione dati (Data Breach)',d:'Incidente già avvenuto'},
-        {ic:'doc',   n:'Ispezione del Garante',d:'Controllo autorità'},
-        {ic:'lock',  n:'Accesso non autorizzato a dati',d:'Violazione riservatezza'},
-        {ic:'check', n:'Nessuno di questi',d:'Nessun episodio noto'},
-      ]},
-      {id:'co_nis2',lbl:'Sei a conoscenza della Direttiva NIS2 e del suo impatto sulla tua azienda?',type:'radio',opts:[
-        {ic:'check',n:'No, non ne so nulla',d:'Prima volta che ne sento'},
-        {ic:'doc',  n:'Ne ho sentito parlare',d:'Informazione superficiale'},
-        {ic:'shield',n:'So che mi riguarda',d:'Devo adeguarmi'},
-        {ic:'cyber',n:'Sto già lavorando alla compliance',d:'Percorso avviato'},
-        {ic:'check',n:'Non so se mi riguarda',d:'Da verificare'},
-      ]},
-      {id:'co_iso',lbl:'La tua azienda ha o sta valutando certificazioni?',type:'multi',opts:[
-        {ic:'doc',  n:'ISO 27001',d:'Sicurezza delle informazioni'},
-        {ic:'doc',  n:'ISO 9001',d:'Qualità aziendale'},
-        {ic:'doc',  n:'ISO 45001',d:'Salute e sicurezza lavoro'},
-        {ic:'shield',n:'SOC 2',d:'Sicurezza per SaaS/cloud'},
-        {ic:'check',n:'Nessuna certificazione',d:'Non ancora'},
-        {ic:'check',n:'Non so quali servano',d:'Da valutare'},
-      ]},
-      {id:'co_dpo',lbl:'Hai già un DPO (Data Protection Officer)?',type:'radio',opts:[
-        {ic:'person',n:'Sì, interno all\'azienda',d:'Dipendente dedicato'},
-        {ic:'person',n:'Sì, esterno / consulente',d:'Professionista esterno'},
-        {ic:'check', n:'No, ma so di doverlo nominare',d:'Obbligo normativo'},
-        {ic:'check', n:'No, non so se mi serve',d:'Da verificare'},
-      ]},
-      {id:'co_ciso',lbl:'Hai già un CISO (Chief Information Security Officer)?',type:'radio',opts:[
-        {ic:'cyber', n:'Sì, interno all\'azienda',d:'Figura dedicata'},
-        {ic:'cyber', n:'Sì, in outsourcing',d:'Servizio gestito'},
-        {ic:'check', n:'No, ma vorrei valutarlo',d:'Interesse a esplorare'},
-        {ic:'check', n:'No, non so cos\'è',d:'Prima volta'},
-      ]},
-      {id:'co_esi',lbl:'Quali servizi di consulting ti interessano?',type:'multi',opts:[
-        {ic:'doc',   n:'GDPR Full Compliance',d:'Percorso completo di adeguamento'},
-        {ic:'person',n:'DPO as a Service',d:'DPO esterno in outsourcing'},
-        {ic:'cyber', n:'CISO as a Service',d:'CISO esterno in outsourcing'},
-        {ic:'shield',n:'Assessment NIS2',d:'Analisi gap e piano di adeguamento'},
-        {ic:'doc',   n:'Risk Assessment',d:'Analisi e gestione del rischio'},
-        {ic:'lock',  n:'DPIA',d:'Valutazione d\'impatto privacy'},
-        {ic:'monitor',n:'Audit interni',d:'Verifica conformità periodica'},
-        {ic:'person',n:'Formazione dipendenti',d:'Security & privacy awareness'},
-        {ic:'doc',   n:'Registro trattamenti',d:'Mappatura e documentazione'},
-        {ic:'shield',n:'Incident Response plan',d:'Gestione Data Breach'},
-      ]},
-      {id:'co_urg',lbl:'Con quale urgenza hai necessità di intervenire?',type:'radio',opts:[
-        {ic:'flag',n:'Urgente — ho scadenze imminenti',d:'Entro 30 giorni'},
-        {ic:'flag',n:'Breve termine',d:'Entro 3 mesi'},
-        {ic:'flag',n:'Medio termine',d:'Entro 6–12 mesi'},
-        {ic:'flag',n:'Sto solo esplorando',d:'Nessuna urgenza'},
-      ]},
-      {id:'co_note',lbl:'Note aggiuntive o contesto specifico (facoltativo)',hint:'Descrivici la tua situazione attuale, eventuali ispezioni ricevute, scadenze normative o obiettivi specifici.',type:'textarea',ph:'Es. Azienda soggetta a NIS2 nel settore energia, già ricevuto richiesta dal Garante...'},
-    ]
-  },
-  fisica: {
-    id:'sicurezza_fisica',eye:'Sicurezza e Protezione di Beni e Persone',title:'Protezione di persone, beni e spazi',
-    color:'blue',desc:'Impianti intelligenti, videosorveglianza AI, vigilanza e intervento su allarme.',
-    qs:[
-      {id:'sf_a',lbl:'Hai già sistemi di sicurezza installati?',type:'multi',opts:[
-        {ic:'alarm',n:'Antintrusione',d:'Sensori e centrale'},{ic:'camera',n:'Videosorveglianza',d:'Telecamere TVCC'},{ic:'lock',n:'Controllo accessi',d:'Badge / biometrico'},{ic:'patrol',n:'Servizio vigilanza',d:'Guardie giurate'},{ic:'check',n:'Nessun sistema',d:'Da zero'},
-      ]},
-      {id:'sf_e',lbl:'Quali esigenze di sicurezza hai?',type:'multi',opts:[
-        {ic:'shield',n:'Protezione antifurto H24',d:'Monitoraggio continuo'},{ic:'camera',n:'Video remoto H24',d:'Sorveglianza live'},{ic:'alarm',n:'Intervento su allarme',d:'Pattuglia su chiamata'},{ic:'patrol',n:'Pattugliamento periodico',d:'Ronde programmate'},{ic:'lock',n:'Controllo accessi',d:'Ingressi autorizzati'},{ic:'fire',n:'Incendi / allagamenti',d:'Rilevatori tecnici'},{ic:'play',n:'Videosorveglianza AI',d:'Rilevazione intelligente'},{ic:'drone',n:'Videoronda AI automatica',d:'Ronde senza operatore'},
-        {ic:'fire',  n:'DAE — Defibrillatore',d:'Cardioprotezione con monitoraggio SOC H24'},
-        {ic:'person',n:'Corso BLSD',d:'Formazione primo soccorso per dipendenti'},
-        {ic:'alarm', n:'Dispositivo antiaggressione SOS / rapina',d:'Ayuto: antirapina, antiaggressione, SOS lavoratore isolato, Man Down'},
-      ]},
-      {id:'sf_t',lbl:'Cosa devi proteggere?',type:'multi',opts:[
-        {ic:'monitor',n:'Ufficio / open space',d:'Sede lavorativa'},
-        {ic:'truck',  n:'Capannone / magazzino',d:'Area produttiva'},
-        {ic:'web',    n:'Negozio / retail',d:'Punto vendita'},
-        {ic:'alarm',  n:'Cantiere temporaneo',d:'Area di lavoro'},
-        {ic:'gps',    n:'Perimetro esterno',d:'Area verde / recinzione'},
-        {ic:'person', n:'Protezione personale',d:'Persone, dipendenti, clienti'},
-        {ic:'person', n:'Villa / abitazione',d:'Uso privato'},
-      ]},
-      {id:'sf_num',lbl:'Quante telecamere hai o prevedi di installare?',type:'radio',opts:[
-        {ic:'camera',n:'1–4 telecamere'},{ic:'camera',n:'5–8 telecamere'},{ic:'camera',n:'9–16 telecamere'},{ic:'camera',n:'Oltre 16'},{ic:'check',n:'Da valutare'},
-      ]},
-      {id:'sf_bio',lbl:'Quante persone operano nella tua struttura?',hint:'Visibile solo se hai selezionato DAE o dispositivo antiaggressione — ci aiuta a dimensionare correttamente il servizio.',type:'radio',conditional:'sf_e',condValues:['DAE — Defibrillatore','Corso BLSD','Dispositivo antiaggressione SOS / rapina'],opts:[
-        {ic:'person',n:'Meno di 10 persone',d:'Piccola struttura'},
-        {ic:'person',n:'10–50 persone',d:'Media struttura'},
-        {ic:'person',n:'51–200 persone',d:'Grande struttura'},
-        {ic:'person',n:'Oltre 200 persone',d:'Grande azienda / multisite'},
-      ]},
-      {id:'sf_m',lbl:'Come preferisci che la sicurezza venga gestita?',type:'radio',opts:[
-        {ic:'mobile',n:'In autonomia (app)',d:'Controllo diretto'},{ic:'cyber',n:'Centro operativo H24',d:'SOC professionale'},{ic:'shield',n:'Entrambe le modalità',d:'Approccio ibrido'},{ic:'check',n:'Non lo so ancora'},
-      ]},
-      {id:'sf_note',lbl:'Note e osservazioni (facoltativo)',hint:'Descrivi la tua situazione attuale, eventuali episodi passati, caratteristiche specifiche del sito o qualsiasi cosa ritieni utile per ricevere una proposta mirata.',type:'textarea',ph:'Es. Abbiamo avuto un tentativo di effrazione lo scorso anno, siamo aperti anche di notte, il magazzino è su tre livelli...'},
-    ]
-  },
-  cyber: {
-    id:'cybersecurity',eye:'Sicurezza Informatica',title:'Cyber Security aziendale',
-    color:'blue',desc:'Proteggi la tua azienda da ransomware, phishing e minacce informatiche.',
-    qs:[
-      {id:'cy_d',lbl:'Quanti dispositivi aziendali gestisci?',type:'radio',opts:[
-        {ic:'monitor',n:'Meno di 10'},{ic:'monitor',n:'10–50'},{ic:'monitor',n:'51–200'},{ic:'monitor',n:'Oltre 200'},
-      ]},
-      {id:'cy_a',lbl:'Cosa utilizzi attualmente per proteggerti?',type:'multi',opts:[
-        {ic:'shield',n:'Antivirus base',d:'Protezione locale'},{ic:'wall',n:'Firewall',d:'Perimetro di rete'},{ic:'ip',n:'VPN',d:'Accesso remoto sicuro'},{ic:'backup',n:'Backup dati',d:'Copia di sicurezza'},{ic:'check',n:'Nessuno'},{ic:'check',n:'Non lo so'},
-      ]},
-      {id:'cy_v',lbl:'Hai mai subito questi eventi?',type:'multi',opts:[
-        {ic:'alarm',n:'Virus / ransomware',d:'Dati criptati o persi'},{ic:'email',n:'Phishing',d:'Email truffaldine'},{ic:'lock',n:'Accessi non autorizzati',d:'Account compromessi'},{ic:'backup',n:'Perdita dati',d:'File irrecuperabili'},{ic:'check',n:'Nessun evento'},
-      ]},
-      {id:'cy_e',lbl:'Cosa ti interessa in ambito cyber security?',type:'multi',opts:[
-        {ic:'monitor',n:'Protezione endpoint',d:'PC e server'},{ic:'email',n:'Sicurezza email',d:'Anti-phishing'},{ic:'wall',n:'Firewall gestito',d:'Perimetro monitorato'},{ic:'cyber',n:'Monitoraggio H24 (SOC)',d:'Rilevazione minacce'},{ic:'sensor',n:'Vulnerability management',d:'Scansione falle'},{ic:'doc',n:'GDPR / NIS2',d:'Conformità normativa'},{ic:'person',n:'Formazione dipendenti',d:'Security awareness'},{ic:'shield',n:'Assessment / consulenza',d:'Analisi del rischio'},
-      ]},
-      {id:'cy_note',lbl:'Note e osservazioni (facoltativo)',hint:'Descrivici la tua situazione attuale — episodi subiti, sistemi già presenti, preoccupazioni specifiche.',type:'textarea',ph:'Es. Abbiamo subito un attacco ransomware lo scorso anno, utilizziamo sistemi legacy, lavoriamo con dati sensibili di clienti...'},
-    ]
-  },
-};
-
-const PRIORITY_SEC={
-  id:'priorita',eye:'Ultime domande',title:'Aiutaci a conoscerti meglio',
-  color:'orange',desc:'Poche domande finali per costruire una proposta su misura e capire come vuoi essere contattato.',
-  qs:[
-    {id:'pr_dim',lbl:'Quante persone lavorano nella tua azienda?',type:'radio',opts:[
-      {ic:'person',n:'1–5 persone',d:'Micro impresa / freelance'},
-      {ic:'person',n:'6–20 persone',d:'Piccola impresa'},
-      {ic:'person',n:'21–100 persone',d:'Media impresa'},
-      {ic:'person',n:'Oltre 100 persone',d:'Grande impresa'},
-    ]},
-    {id:'pr_ruolo',lbl:'Chi sei all\'interno dell\'azienda?',type:'radio',opts:[
-      {ic:'person',n:'Titolare / CEO',d:'Decisore principale'},
-      {ic:'monitor',n:'Resp. IT / Sistemi',d:'Gestione tecnologia'},
-      {ic:'doc',   n:'Resp. Amministrativo',d:'Gestione costi e contratti'},
-      {ic:'flag',  n:'Resp. Acquisti',d:'Valutazione fornitori'},
-      {ic:'truck', n:'Resp. Operations',d:'Gestione operativa'},
-      {ic:'shield',n:'Resp. Sicurezza',d:'Protezione aziendale'},
-      {ic:'person',n:'Libero professionista',d:'Attività individuale'},
-      {ic:'check', n:'Altro',d:'Ruolo diverso'},
-    ]},
-    {id:'pr_v',lbl:'Cosa conta di più nella scelta di un fornitore?',type:'multi',opts:[
-      {ic:'shield',n:'Qualità, affidabilità e copertura',d:'Continuità e solidità del servizio'},
-      {ic:'euro',  n:'Prezzo e trasparenza dei costi',d:'Nessuna sorpresa in fattura'},
-      {ic:'person',n:'Assistenza e supporto dedicato',d:'Un riferimento sempre disponibile'},
-      {ic:'flag',  n:'Velocità di attivazione',d:'Operativo in tempi rapidi'},
-      {ic:'check', n:'Esperienza nel settore',d:'Conosce il mio tipo di business'},
-      {ic:'doc',   n:'Contratto flessibile',d:'Senza vincoli lunghi'},
-      {ic:'web',   n:'Soluzione tutto-in-uno',d:'Un solo interlocutore per tutto'},
-      {ic:'cyber', n:'Referenze e certificazioni',d:'ISO, UNI, casi di successo'},
-      {ic:'gps',   n:'Presenza e supporto locale',d:'Tecnico disponibile sul territorio'},
-      {ic:'sensor',n:'Innovazione tecnologica',d:'Soluzioni aggiornate e moderne'},
-      {ic:'lock',  n:'Sicurezza dei dati e riservatezza',d:'Privacy e protezione garantite'},
-    ]},
-    {id:'pr_fornitore',lbl:'Preferiresti gestire questi servizi con un unico fornitore?',type:'radio',opts:[
-      {ic:'check', n:'Sì, preferisco un unico interlocutore',d:'Semplicità e gestione centralizzata'},
-      {ic:'web',   n:'Ho già partner separati',d:'Gestione distribuita'},
-      {ic:'flag',  n:'Non ho preferenze',d:'Valuto in base alla proposta'},
-    ]},
-    {id:'pr_tempi',lbl:'In che tempi vorresti ricevere una proposta?',type:'radio',opts:[
-      {ic:'alarm', n:'Entro 24–48 ore',d:'Massima urgenza'},
-      {ic:'flag',  n:'Entro questa settimana',d:'Urgenza media'},
-      {ic:'flag',  n:'Entro il mese',d:'Tempi distesi'},
-      {ic:'alarm', n:'Ho una scadenza precisa',d:'Contratto o progetto in corso'},
-      {ic:'check', n:'Nessuna urgenza particolare',d:'Sto valutando le opzioni'},
-    ]},
-    {id:'pr_contatto',lbl:'Come preferisci essere contattato?',type:'radio',opts:[
-      {ic:'phone', n:'Chiamatemi',d:'Telefonata diretta'},
-      {ic:'mobile',n:'WhatsApp',d:'Messaggio o chiamata WA'},
-      {ic:'camera',n:'Video call',d:'Meet, Teams o Zoom'},
-      {ic:'person',n:'In presenza',d:'Appuntamento fisico'},
-      {ic:'email', n:'Contatto via mail',d:'Preferisco la email'},
-      {ic:'check', n:'Valuterò dopo la proposta',d:'Prima vedo, poi decido'},
-    ]},
-    {id:'pr_orario',lbl:'Scegli data e ora preferita per l\'appuntamento',hint:'Seleziona quando vorresti essere contattato — ti riconfermeremo la disponibilità.',type:'datetime',conditional:'pr_contatto',condValues:['Chiamatemi','Video call','In presenza','WhatsApp']},
-    {id:'pr_n',lbl:'Note libere (facoltativo)',hint:'Aggiungici qualcosa che non abbiamo chiesto — una scadenza, una situazione specifica, una domanda...',type:'textarea',ph:'Es. Contratto in scadenza a marzo, cerco alternativa a...'},
-  ]
-};
-
-/* ══════════════════════════════════════════════
-   COLOR HELPERS
-══════════════════════════════════════════════ */
-function getCol(c){
-  if(c==='blue') return{m:'var(--blue)',d:'var(--blue-dark)',l:'var(--blue-light)',mid:'var(--blue-mid)',sc:'sb'};
-  if(c==='green') return{m:'var(--green)',d:'var(--green)',l:'var(--green-light)',mid:'var(--green-mid)',sc:'sg'};
-  if(c==='pos') return{m:'var(--pos)',d:'var(--pos)',l:'var(--pos-light)',mid:'var(--pos-mid)',sc:'sk'};
-  if(c==='cons') return{m:'var(--cons)',d:'var(--cons)',l:'var(--cons-light)',mid:'var(--cons-mid)',sc:'sc'};
-  return{m:'var(--orange)',d:'var(--orange-dark)',l:'var(--orange-light)',mid:'var(--orange-mid)',sc:'so'};
-}
-
-/* ══════════════════════════════════════════════
-   NAVIGATION
-══════════════════════════════════════════════ */
-function goNext(){
-  if(document.getElementById('scr-sel').classList.contains('active')){
-    buildScreenList();
-    document.getElementById('scr-sel').classList.remove('active');
-    document.getElementById('tRight').style.display='flex';
-    cur=0; render(0); return;
-  }
-  if(cur>=activeScrs.length){submit();return;}
-  cur++;render(cur);
-}
-
-function goBack(){
-  if(document.getElementById('dynS').children.length>0 && cur>0){
-    cur--;render(cur);
-  } else if(cur===0 && document.getElementById('tRight').style.display==='flex'){
-    // torna al selettore (azienda) o al welcome (privato)
-    document.getElementById('dynS').innerHTML='';
-    document.getElementById('tRight').style.display='none';
-    document.getElementById('btnNx').textContent='Avanti →';
-    if(uType==='privato'){
-      document.getElementById('bnav').style.display='none';
-      document.getElementById('scr-w').classList.add('active');
-    } else {
-      document.getElementById('scr-sel').classList.add('active');
-      document.getElementById('btnNx').disabled=!Object.values(selCards).some(v=>v);
-    }
-  } else {
-    document.getElementById('scr-sel').classList.remove('active');
-    document.getElementById('bnav').style.display='none';
-    document.getElementById('scr-w').classList.add('active');
-  }
-}
-
-function buildScreenList(){
-  activeScrs=[];
-  if(selCards.conn) activeScrs.push(ALL_SECTIONS.conn);
-  if(selCards.web)  activeScrs.push(ALL_SECTIONS.web);
-  if(selCards.iot)  activeScrs.push(ALL_SECTIONS.iot);
-  if(selCards.pos)  activeScrs.push(ALL_SECTIONS.pos);
-  if(selCards.cons) activeScrs.push(ALL_SECTIONS.cons);
-  if(selCards.fisica) activeScrs.push(ALL_SECTIONS.fisica);
-  if(selCards.cyber)  activeScrs.push(ALL_SECTIONS.cyber);
-  // Consulting ha già urgenza e note proprie — se è l'unico servizio selezionato, vai diretto al form contatti
-  const onlyCons = selCards.cons && !selCards.conn && !selCards.web && !selCards.iot && !selCards.pos && !selCards.fisica && !selCards.cyber;
-  if(!onlyCons) activeScrs.push(PRIORITY_SEC);
-}
-
-/* ══════════════════════════════════════════════
-   RENDER QUESTION SECTION
-══════════════════════════════════════════════ */
-function render(i){
-  const c=document.getElementById('dynS');c.innerHTML='';
-  const tot=activeScrs.length+1;
-  const col=getCol(activeScrs[Math.min(i,activeScrs.length-1)].color);
-  const pct=Math.round((i+1)/(tot+1)*100);
-  const pf=document.getElementById('tPF');
-  pf.style.width=pct+'%';pf.style.background=col.m;
-  document.getElementById('tStep').textContent=(i+1)+' / '+tot;
-  document.getElementById('btnBk').style.visibility='visible';
-  if(i<activeScrs.length) renderSec(activeScrs[i],getCol(activeScrs[i].color),c);
-  else renderContact(c);
-  window.scrollTo({top:0,behavior:'smooth'});
-  updBtn();
-}
-
-function renderSec(sec,col,c){
-  const d=document.createElement('div');d.className='screen active';
-  let h=`<div class="s-bar" style="background:${col.m}"></div><div class="sw">
-  <div class="s-eye" style="color:${col.m}"><span class="dot" style="background:${col.m}"></span>${sec.eye}</div>
-  <h2 class="s-title">${sec.title}</h2><p class="s-desc">${sec.desc}</p>
-  <div class="ql">`;
-  sec.qs.forEach(q=>{
-    // Domanda condizionale: renderizza ma nascondi se la condizione non è soddisfatta
-    let condAttrs='';
-    let condStyle='';
-    if(q.conditional){
-      const triggerAns=ans[q.conditional];
-      const hasMatch=q.condValues.some(v=>Array.isArray(triggerAns)?triggerAns.includes(v):triggerAns===v);
-      condAttrs=`data-conditional="${q.conditional}" data-cond-values='${JSON.stringify(q.condValues)}'`;
-      condStyle=hasMatch?'':'display:none;';
-    }
-    h+=`<div class="qb" ${condAttrs} style="${condStyle}"><p class="q-lbl">${q.lbl}</p>`;
-    if(q.hint) h+=`<p class="q-hint">${q.hint}</p>`;
-    if(q.type==='multi'||q.type==='radio'){
-      h+=`<div class="og">`;
-      q.opts.forEach(o=>{
-        const sel=ans[q.id]&&(Array.isArray(ans[q.id])?ans[q.id].includes(o.n):ans[q.id]===o.n);
-        h+=`<button class="opt ${sel?col.sc:''}" onclick="pick('${q.id}','${q.type}','${esc(o.n)}','${col.sc}','${col.m}','${col.mid}')" data-qid="${q.id}" data-val="${esc(o.n)}">
-          <span class="oi" style="background:${sel?col.m:col.mid}">${IC[o.ic]||IC.check}</span>
-          <span class="ot"><span class="on">${o.n}</span>${o.d?`<span class="od">${o.d}</span>`:''}</span>
-        </button>`;
-      });
-      h+=`</div>`;
-    } else if(q.type==='scale'){
-      h+=`<div class="scale-wrap"><div class="scale-btns">`;
-      for(let i=q.min;i<=q.max;i++){
-        const sel=ans[q.id]==i;
-        h+=`<button class="sbt ${sel?col.sc:''}" onclick="pickSc('${q.id}',${i},'${col.sc}')" data-qid="${q.id}">${i}</button>`;
-      }
-      h+=`</div><div class="scale-lbs"><span>${q.lbs[0]}</span><span>${q.lbs[1]}</span></div></div>`;
-    } else if(q.type==='datetime'){
-      const today=new Date().toISOString().split('T')[0];
-      const savedDate=ans[q.id+'_date']||'';
-      const savedTime=ans[q.id+'_time']||'';
-      h+=`<div class="datetime-wrap">
-        <div class="datetime-group">
-          <label class="datetime-label">📅 Data</label>
-          <input type="date" class="datetime-input ${savedDate?'filled':''}" id="dt_date_${q.id}" min="${today}" value="${savedDate}"
-            onchange="ans['${q.id}_date']=this.value; this.classList.toggle('filled',!!this.value); updateDateTimeAns('${q.id}'); checkDateTimeComplete('${q.id}')"/>
-        </div>
-        <div class="datetime-group">
-          <label class="datetime-label">🕐 Ora</label>
-          <select class="datetime-input ${savedTime?'filled':''}" id="dt_time_${q.id}"
-            onchange="ans['${q.id}_time']=this.value; this.classList.toggle('filled',!!this.value); updateDateTimeAns('${q.id}'); checkDateTimeComplete('${q.id}')">
-            <option value="">Seleziona orario</option>
-            <option value="08:30" ${savedTime==='08:30'?'selected':''}>08:30</option>
-            <option value="09:00" ${savedTime==='09:00'?'selected':''}>09:00</option>
-            <option value="09:30" ${savedTime==='09:30'?'selected':''}>09:30</option>
-            <option value="10:00" ${savedTime==='10:00'?'selected':''}>10:00</option>
-            <option value="10:30" ${savedTime==='10:30'?'selected':''}>10:30</option>
-            <option value="11:00" ${savedTime==='11:00'?'selected':''}>11:00</option>
-            <option value="11:30" ${savedTime==='11:30'?'selected':''}>11:30</option>
-            <option value="12:00" ${savedTime==='12:00'?'selected':''}>12:00</option>
-            <option value="14:00" ${savedTime==='14:00'?'selected':''}>14:00</option>
-            <option value="14:30" ${savedTime==='14:30'?'selected':''}>14:30</option>
-            <option value="15:00" ${savedTime==='15:00'?'selected':''}>15:00</option>
-            <option value="15:30" ${savedTime==='15:30'?'selected':''}>15:30</option>
-            <option value="16:00" ${savedTime==='16:00'?'selected':''}>16:00</option>
-            <option value="16:30" ${savedTime==='16:30'?'selected':''}>16:30</option>
-            <option value="17:00" ${savedTime==='17:00'?'selected':''}>17:00</option>
-            <option value="17:30" ${savedTime==='17:30'?'selected':''}>17:30</option>
-            <option value="18:00" ${savedTime==='18:00'?'selected':''}>18:00</option>
-            <option value="18:30" ${savedTime==='18:30'?'selected':''}>18:30</option>
-            <option value="19:00" ${savedTime==='19:00'?'selected':''}>19:00</option>
-          </select>
-        </div>
-      </div>`;
-    } else if(q.type==='textarea'){
-      h+=`<textarea class="txt" placeholder="${q.ph||''}" onchange="ans['${q.id}']=this.value">${ans[q.id]||''}</textarea>`;
-      if(q.hasUpload){
-        const fname=ans[q.id+'_file']||'';
-        h+=`<label class="file-upload-area" onclick="document.getElementById('fu_${q.id}').click()">
-          <input type="file" id="fu_${q.id}" accept=".pdf,.jpg,.jpeg,.png,.webp" onchange="handleFile('${q.id}',this)"/>
-          <div class="file-upload-icon"><svg viewBox="0 0 24 24"><path d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z"/></svg></div>
-          <div class="file-upload-text">
-            <strong>📎 Allega fattura o riepilogo tariffe</strong>
-            <span>${q.uploadHint||'Facoltativo — PDF, JPG o PNG'}</span>
-          </div>
-        </label>
-        ${fname?`<div class="file-name-tag">✓ ${fname}</div>`:''}`;
-      }
-    }
-    h+=`</div>`;
-  });
-  h+=`</div></div>`;
-  d.innerHTML=h;c.appendChild(d);
-}
-
-function renderContact(c){
-  const d=document.createElement('div');d.className='screen active';
-  const isAz=uType==='azienda';
-  d.innerHTML=`<div class="s-bar" style="background:var(--blue)"></div>
-  <div class="cw">
-    <div class="s-eye" style="color:var(--blue)"><span class="dot" style="background:var(--blue)"></span>Ultimo passaggio</div>
-    <h2 class="s-title">Come ti contattiamo?</h2>
-    <p class="s-desc">Inserisci i tuoi dati per ricevere una proposta personalizzata. Nessuno spam, solo la nostra risposta.</p>
-    <div class="fgrid">
-      <div class="fg"><label>Nome *</label><input id="f_n" type="text" placeholder="Mario" value="${ans.f_n||''}" oninput="ans.f_n=this.value;updBtn()"/></div>
-      <div class="fg"><label>Cognome *</label><input id="f_c" type="text" placeholder="Rossi" value="${ans.f_c||''}" oninput="ans.f_c=this.value;updBtn()"/></div>
-      ${isAz?`
-      <div class="fg full"><label>Ragione Sociale *</label><input id="f_r" type="text" placeholder="Rossi Srl" value="${ans.f_r||''}" oninput="ans.f_r=this.value;updBtn()"/></div>
-      <div class="fg"><label>Partita IVA</label><input class="opt-f" id="f_p" type="text" placeholder="IT00000000000" value="${ans.f_p||''}" oninput="ans.f_p=this.value"/></div>
-      <div class="fg"><label>Settore</label><input class="opt-f" id="f_s" type="text" placeholder="Logistica, retail..." value="${ans.f_s||''}" oninput="ans.f_s=this.value"/></div>`:''}
-      <div class="fg full"><label>Email *</label><input id="f_e" type="email" placeholder="mario.rossi@email.it" value="${ans.f_e||''}" oninput="ans.f_e=this.value;updBtn()"/></div>
-      <div class="fg full"><label>Telefono *</label><input id="f_t" type="tel" placeholder="+39 333 000 0000" value="${ans.f_t||''}" oninput="ans.f_t=this.value;updBtn()"/></div>
+<!-- COME FUNZIONA -->
+<section class="section" style="background:var(--g50)">
+  <div class="section-inner">
+    <div class="section-label">Come funziona</div>
+    <h2 class="section-title">2 modi per iniziare, 1 minuto per scoprirlo</h2>
+    <p class="section-desc">Scegli il canale che preferisci — entrambi portano alla stessa cosa: un confronto concreto sulla tua situazione attuale.</p>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Scrivici o compila</h3>
+        <p>Un messaggio WhatsApp diretto o poche domande nel questionario — a te la scelta.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>Analizziamo la tua situazione</h3>
+        <p>Controlliamo costi, copertura e condizioni attuali rispetto a ciò che il mercato offre oggi.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>Ricevi una proposta chiara</h3>
+        <p>Ti diciamo con trasparenza se conviene cambiare — e cosa risparmieresti, senza impegno.</p>
+      </div>
     </div>
-    <p class="prv">I tuoi dati saranno trattati nel rispetto del Reg. UE 2016/679 (GDPR) esclusivamente per risponderti con una proposta commerciale. Non verranno ceduti a terzi.</p>
-  </div>`;
-  c.appendChild(d);
-  document.getElementById('btnNx').textContent='Invia richiesta ✓';
-}
+  </div>
+</section>
 
-/* ══════════════════════════════════════════════
-   INTERACTIONS
-══════════════════════════════════════════════ */
-function esc(s){return s.replace(/'/g,"\\'")}
+<!-- DOUBLE CTA FINALE -->
+<section class="cta-section">
+  <h2>Bastano 2 minuti su WhatsApp</h2>
+  <p>Scrivici ora: ti rispondiamo con un consulente reale, non un bot.</p>
+  <a class="cta-final-wa" href="https://wa.me/393351481883?text=Ciao%2C%20vorrei%20avere%20informazioni%20per%20cambiare%20operatore%20per%20la%20mia%20azienda." target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.552 4.103 1.513 5.832L.057 23.57a.5.5 0 00.608.65l5.988-1.586A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.663-.493-5.2-1.355l-.374-.214-3.876 1.027 1.002-3.757-.232-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    Apri WhatsApp ora
+  </a>
+  <div class="cta-final-alt">
+    <a href="/questionario.html">Preferisco compilare il questionario →</a>
+  </div>
+</section>
 
-function updateDateTimeAns(qid){
-  const date=ans[qid+'_date']||'';
-  const time=ans[qid+'_time']||'';
-  if(date&&time) ans[qid]=date+' alle '+time;
-  else if(date) ans[qid]=date;
-  else ans[qid]='';
-}
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Open <span>Innovation</span> Consulting</div>
+  <div class="footer-contact">
+    WhatsApp: <a href="https://wa.me/393351481883">+39 335 148 1883</a><br>
+    Zona Verona e provincia
+  </div>
+  <div class="footer-privacy">
+    I dati inseriti sono trattati nel rispetto del Reg. UE 2016/679 (GDPR) esclusivamente per risponderti con una proposta commerciale. Non vengono ceduti a terzi.
+  </div>
+</footer>
 
-function checkDateTimeComplete(qid){
-  const date=ans[qid+'_date']||'';
-  const time=ans[qid+'_time']||'';
-  // Quando entrambi compilati → avanza automaticamente alla pagina contatti
-  if(date&&time){
-    setTimeout(()=>goNext(), 500);
-  }
-}
-
-function handleFile(qid, input){
-  if(input.files && input.files[0]){
-    const f=input.files[0];
-    ans[qid+'_file']=f.name;
-    ans[qid+'_fileObj']=f;
-    const existing=document.querySelector('.file-name-tag');
-    const tag=`<div class="file-name-tag">✓ ${f.name}</div>`;
-    if(existing) existing.outerHTML=tag;
-    else{
-      const area=document.getElementById('fu_'+qid)?.closest('label');
-      if(area) area.insertAdjacentHTML('afterend',tag);
-    }
-  }
-}
-
-function pick(qid,type,val,sc,cm,cmid){
-  if(type==='radio') ans[qid]=val;
-  else{if(!ans[qid])ans[qid]=[];const i=ans[qid].indexOf(val);if(i>-1)ans[qid].splice(i,1);else ans[qid].push(val);}
-  document.querySelectorAll(`[data-qid="${qid}"]`).forEach(btn=>{
-    const v=btn.getAttribute('data-val');
-    const sel=type==='radio'?v===val:(ans[qid]&&ans[qid].includes(v));
-    btn.className='opt'+(sel?' '+sc:'');
-    const oi=btn.querySelector('.oi');
-    if(oi) oi.style.background=sel?cm:cmid;
-  });
-  checkConditionals();
-
-  // Scroll automatico alla domanda successiva visibile
-  const allBlocks=Array.from(document.querySelectorAll('.qb'));
-  const thisBlock=document.querySelector(`[data-qid="${qid}"]`)?.closest('.qb');
-  if(thisBlock){
-    const idx=allBlocks.indexOf(thisBlock);
-    const nextBlock=allBlocks[idx+1];
-    if(nextBlock){
-      setTimeout(()=>{
-        const top=nextBlock.getBoundingClientRect().top+window.scrollY-90;
-        window.scrollTo({top,behavior:'smooth'});
-      }, type==='radio'?280:100);
-    }
-  }
-
-  // Ricarica sezione se cambia una domanda che ha condizionali collegati
-  // Ricarica sezione se cambia una domanda che ha condizionali collegati
-  if(qid==='sf_e'||qid==='pr_contatto'){
-
-    // Auto-avanza se sceglie opzione senza datetime (prima del re-render)
-    if(qid==='pr_contatto'){
-      const needsDatetime=['Chiamatemi','WhatsApp','Video call','In presenza'];
-      const hasDatetime=needsDatetime.includes(val);
-      if(!hasDatetime){
-        setTimeout(()=>goNext(), 420);
-        return;
-      }
-    }
-
-    const scrollY=window.scrollY;
-    render(cur);
-    // Dopo il re-render: ripristina posizione e poi scrolla alla domanda successiva
-    setTimeout(()=>{
-      window.scrollTo({top:scrollY,behavior:'instant'});
-      const allBlocks=Array.from(document.querySelectorAll('.qb'));
-      const thisBlock=document.querySelector(`[data-qid="${qid}"]`)?.closest('.qb');
-      if(thisBlock){
-        const idx=allBlocks.indexOf(thisBlock);
-        const nextBlock=allBlocks[idx+1];
-        if(nextBlock){
-          setTimeout(()=>{
-            const top=nextBlock.getBoundingClientRect().top+window.scrollY-90;
-            window.scrollTo({top,behavior:'smooth'});
-          },80);
-        }
-      }
-    },20);
-    return;
-  }
-
-  // Auto-avanza al form contatti dopo selezione orario
-  if(qid==='pr_orario'){
-    setTimeout(()=>goNext(), 500);
-  }
-
-  updBtn();
-}
-
-function checkConditionals(){
-  // Cerca tutti i blocchi condizionali nel DOM e li mostra/nasconde
-  document.querySelectorAll('[data-conditional]').forEach(el=>{
-    const triggerQid=el.getAttribute('data-conditional');
-    const condValues=JSON.parse(el.getAttribute('data-cond-values'));
-    const triggerAns=ans[triggerQid];
-    const hasMatch=condValues.some(v=>Array.isArray(triggerAns)?triggerAns.includes(v):triggerAns===v);
-    el.style.display=hasMatch?'flex':'none';
-  });
-}
-
-function pickSc(qid,val,sc){
-  ans[qid]=val;
-  document.querySelectorAll(`[data-qid="${qid}"]`).forEach(btn=>{
-    btn.className='sbt'+(parseInt(btn.textContent)===val?' '+sc:'');
-  });
-  // Scroll automatico alla domanda successiva
-  const allBlocks=Array.from(document.querySelectorAll('.qb'));
-  const thisBlock=document.querySelector(`[data-qid="${qid}"]`)?.closest('.qb');
-  if(thisBlock){
-    const idx=allBlocks.indexOf(thisBlock);
-    const nextBlock=allBlocks[idx+1];
-    if(nextBlock) setTimeout(()=>{
-      const top=nextBlock.getBoundingClientRect().top+window.scrollY-90;
-      window.scrollTo({top,behavior:'smooth'});
-    },250);
-  }
-  updBtn();
-}
-
-function updBtn(){
-  const btn=document.getElementById('btnNx');if(!btn)return;
-  if(cur>=activeScrs.length){
-    const req=['f_n','f_c','f_e','f_t'];
-    if(uType==='azienda') req.push('f_r');
-    btn.disabled=req.some(k=>!ans[k]||!ans[k].trim());
-  } else btn.disabled=false;
-}
-
-/* ══════════════════════════════════════════════
-   SUBMIT
-══════════════════════════════════════════════ */
-function submit(){
-  const btn=document.getElementById('btnNx');
-  btn.textContent='Invio in corso...';btn.disabled=true;
-  const areeSelezionate=Object.entries(selCards).filter(([k,v])=>v).map(([k])=>k).join(', ');
-  const allData={tipo_cliente:uType,aree_interesse:areeSelezionate,...ans};
-  // Rimuovi oggetti file non serializzabili
-  delete allData._fileObj;
-  fetch('https://formspree.io/f/xaqveazw',{
-    method:'POST',
-    headers:{'Content-Type':'application/json','Accept':'application/json'},
-    body:JSON.stringify(allData)
-  }).then(r=>{
-    if(r.ok) showTY();
-    else showTY();
-  }).catch(()=>showTY());
-}
-
-function showTY(){
-  document.getElementById('dynS').innerHTML='';
-  document.getElementById('bnav').style.display='none';
-  document.getElementById('tRight').style.display='none';
-  const d=document.createElement('div');d.className='screen active';
-  d.innerHTML=`<div class="s-bar" style="background:var(--blue)"></div>
-  <div class="ty">
-    <div class="ty-ic">${IC.check}</div>
-    <h2>Grazie, ${ans.f_n||''}!</h2>
-    <p>Abbiamo ricevuto le tue risposte.<br><br>
-    Un nostro consulente ti contatterà entro <strong>24 ore</strong> al numero <strong>${ans.f_t||''}</strong> o all'indirizzo <strong>${ans.f_e||''}</strong> con una proposta su misura per te.</p>
-  </div>`;
-  document.getElementById('dynS').appendChild(d);
-  document.getElementById('scr-w').classList.remove('active');
-}
-</script>
-
-
-</body></html>
+</body>
+</html>
