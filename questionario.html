@@ -559,7 +559,7 @@ const ALL_SECTIONS={
         {ic:'sim',n:'1–5 SIM'},{ic:'sim',n:'6–20 SIM'},{ic:'sim',n:'21–50 SIM'},{ic:'sim',n:'Oltre 50 SIM'},{ic:'sim',n:'Nessuna'},
       ]},
       {id:'cn_s',lbl:'Quanto sei soddisfatto della connessione, copertura e del servizio attuale?',type:'scale',min:1,max:5,lbs:['Per niente soddisfatto','Molto soddisfatto']},
-      {id:'cn_op',lbl:'Qual è il tuo operatore di provenienza mobile e/o fisso? (facoltativo)',hint:'Es. TIM, Vodafone, WindTre, Fastweb, Iliad... Lascia vuoto se preferisci non indicarlo.',type:'textarea',ph:'Es. Mobile: Vodafone — Fisso: TIM fibra...',hasUpload:true,uploadHint:'Hai una fattura o riepilogo tariffe? Allegala — ci permette di fare un\'analisi mirata e veloce (facoltativo, PDF o immagine).'},
+      {id:'cn_op',lbl:'Qual è il tuo operatore di provenienza mobile e/o fisso? (facoltativo)',hint:'Es. TIM, Vodafone, WindTre, Fastweb, Iliad... Lascia vuoto se preferisci non indicarlo.',type:'textarea',ph:'Es. Mobile: Vodafone — Fisso: TIM fibra...',hasUpload:true,uploadHint:'Hai una fattura o riepilogo tariffe? Inviacela su WhatsApp — ci permette di fare un\'analisi mirata e veloce (facoltativo).'},
     ]
   },
   web: {
@@ -1014,16 +1014,13 @@ function renderSec(sec,col,c){
     } else if(q.type==='textarea'){
       h+=`<textarea class="txt" placeholder="${q.ph||''}" onchange="ans['${q.id}']=this.value">${ans[q.id]||''}</textarea>`;
       if(q.hasUpload){
-        const fname=ans[q.id+'_file']||'';
-        h+=`<label class="file-upload-area" onclick="document.getElementById('fu_${q.id}').click()">
-          <input type="file" id="fu_${q.id}" accept=".pdf,.jpg,.jpeg,.png,.webp" onchange="handleFile('${q.id}',this)"/>
-          <div class="file-upload-icon"><svg viewBox="0 0 24 24"><path d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z"/></svg></div>
+        h+=`<a class="file-upload-area" href="https://wa.me/393351481883?text=Ciao%2C%20ti%20invio%20la%20mia%20bolletta%20per%20l%27analisi%20richiesta%20nel%20questionario." target="_blank" rel="noopener" style="background:#EAFBF1;border-color:#25D366;text-decoration:none;">
+          <div class="file-upload-icon" style="background:#25D366"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.552 4.103 1.513 5.832L.057 23.57a.5.5 0 00.608.65l5.988-1.586A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.663-.493-5.2-1.355l-.374-.214-3.876 1.027 1.002-3.757-.232-.386A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></div>
           <div class="file-upload-text">
-            <strong>📎 Allega fattura o riepilogo tariffe</strong>
-            <span>${q.uploadHint||'Facoltativo — PDF, JPG o PNG'}</span>
+            <strong style="color:#128C7E">📎 Invia la bolletta su WhatsApp</strong>
+            <span>${q.uploadHint||'Facoltativo — scrivici e allega direttamente la foto o il PDF'}</span>
           </div>
-        </label>
-        ${fname?`<div class="file-name-tag">✓ ${fname}</div>`:''}`;
+        </a>`;
       }
     }
     h+=`</div>`;
@@ -1075,21 +1072,6 @@ function checkDateTimeComplete(qid){
   // Quando entrambi compilati → avanza automaticamente alla pagina contatti
   if(date&&time){
     setTimeout(()=>goNext(), 500);
-  }
-}
-
-function handleFile(qid, input){
-  if(input.files && input.files[0]){
-    const f=input.files[0];
-    ans[qid+'_file']=f.name;
-    ans[qid+'_fileObj']=f;
-    const existing=document.querySelector('.file-name-tag');
-    const tag=`<div class="file-name-tag">✓ ${f.name}</div>`;
-    if(existing) existing.outerHTML=tag;
-    else{
-      const area=document.getElementById('fu_'+qid)?.closest('label');
-      if(area) area.insertAdjacentHTML('afterend',tag);
-    }
   }
 }
 
@@ -1210,28 +1192,13 @@ function submit(){
   const areeSelezionate=Object.entries(selCards).filter(([k,v])=>v).map(([k])=>k).join(', ');
   const allData={tipo_cliente:uType,aree_interesse:areeSelezionate,...ans};
 
-  // Estrai l'eventuale file allegato (bolletta) prima di ripulire l'oggetto dati
-  let fileToUpload=null;
-  let fileFieldName=null;
-  Object.keys(allData).forEach(k=>{
-    if(k.endsWith('_fileObj') && allData[k] instanceof File){
-      fileToUpload=allData[k];
-      fileFieldName=k;
-    }
-  });
-  delete allData._fileObj;
-
-  // Costruisci FormData: necessario per inviare sia i campi di testo sia il file reale
+  // Costruisci FormData: dati testuali verso SnapItForms (nessun allegato file — vedi box WhatsApp nel form)
   const fd=new FormData();
   fd.append('access_key','sf_5ae7d8f1ef97df783cfc3193a527058b');
   Object.entries(allData).forEach(([k,v])=>{
-    if(v instanceof File) return; // i file si aggiungono a parte sotto
     if(Array.isArray(v)) fd.append(k,v.join(', '));
     else if(v!==undefined && v!==null) fd.append(k,v);
   });
-  if(fileToUpload){
-    fd.append('allegato_bolletta',fileToUpload,fileToUpload.name);
-  }
 
   fetch('https://api.snapitforms.com/submit',{
     method:'POST',
