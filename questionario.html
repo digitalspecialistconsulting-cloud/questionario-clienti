@@ -1209,12 +1209,33 @@ function submit(){
   btn.textContent='Invio in corso...';btn.disabled=true;
   const areeSelezionate=Object.entries(selCards).filter(([k,v])=>v).map(([k])=>k).join(', ');
   const allData={tipo_cliente:uType,aree_interesse:areeSelezionate,...ans};
-  // Rimuovi oggetti file non serializzabili
+
+  // Estrai l'eventuale file allegato (bolletta) prima di ripulire l'oggetto dati
+  let fileToUpload=null;
+  let fileFieldName=null;
+  Object.keys(allData).forEach(k=>{
+    if(k.endsWith('_fileObj') && allData[k] instanceof File){
+      fileToUpload=allData[k];
+      fileFieldName=k;
+    }
+  });
   delete allData._fileObj;
-  fetch('https://formspree.io/f/xaqveazw',{
+
+  // Costruisci FormData: necessario per inviare sia i campi di testo sia il file reale
+  const fd=new FormData();
+  fd.append('access_key','sf_5ae7d8f1ef97df783cfc3193a527058b');
+  Object.entries(allData).forEach(([k,v])=>{
+    if(v instanceof File) return; // i file si aggiungono a parte sotto
+    if(Array.isArray(v)) fd.append(k,v.join(', '));
+    else if(v!==undefined && v!==null) fd.append(k,v);
+  });
+  if(fileToUpload){
+    fd.append('allegato_bolletta',fileToUpload,fileToUpload.name);
+  }
+
+  fetch('https://api.snapitforms.com/submit',{
     method:'POST',
-    headers:{'Content-Type':'application/json','Accept':'application/json'},
-    body:JSON.stringify(allData)
+    body:fd
   }).then(r=>{
     if(r.ok) showTY();
     else showTY();
