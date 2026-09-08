@@ -1209,20 +1209,19 @@ function submit(){
   const areeSelezionate=Object.entries(selCards).filter(([k,v])=>v).map(([k])=>k).join(', ');
   const allData={tipo_cliente:uType,aree_interesse:areeSelezionate,...ans};
 
-  // Costruisci FormData: dati testuali verso SnapItForms (nessun allegato file — vedi box WhatsApp nel form)
-  const fd=new FormData();
-  fd.append('access_key','sf_5ae7d8f1ef97df783cfc3193a527058b');
+  // Costruisci l'oggetto dati in formato piatto (stringhe), come richiesto dall'API JSON di SnapItForms
+  const payload={access_key:'sf_5ae7d8f1ef97df783cfc3193a527058b'};
   Object.entries(allData).forEach(([k,v])=>{
-    if(Array.isArray(v)) fd.append(k,v.join(', '));
-    else if(v!==undefined && v!==null) fd.append(k,v);
+    if(Array.isArray(v)) payload[k]=v.join(', ');
+    else if(v!==undefined && v!==null) payload[k]=String(v);
   });
 
   fetch('https://api.snapitforms.com/submit',{
     method:'POST',
-    body:fd
-  }).then(r=>{
-    if(r.ok) showTY();
-    else showTY();
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(payload)
+  }).then(r=>r.json()).then(data=>{
+    showTY();
   }).catch(()=>showTY());
 }
 
