@@ -1,6 +1,81 @@
 <!DOCTYPE html>
 <!-- saved from url=(0046)file:///C:/Users/anton/Downloads/index_88.html -->
-<html lang="it"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="it"><head><meta charset="UTF-8">
+<!-- OpenAI Ads: measurement starts only after the visitor opts in. -->
+<script>
+(function () {
+  'use strict';
+  var key = 'smartcheck_ads_consent_v1';
+  var consent = null, initialized = false, pageSent = false;
+  try { consent = localStorage.getItem(key); } catch (_) {}
+  function startPixel() {
+    if (initialized) { window.oaiq('consent', true); return; }
+    initialized = true;
+    if (!window.oaiq) {
+      var q = function () { q.q.push(arguments); }; q.q = []; window.oaiq = q;
+      var script = document.createElement('script');
+      script.async = true; script.src = 'https://bzrcdn.openai.com/sdk/oaiq.min.js';
+      document.head.appendChild(script);
+    }
+    window.oaiq('consent', true);
+    window.oaiq('init', { pixelId: 'QBD7ygse3AAcZ7ibepTvJs' });
+  }
+  function measure(eventName) {
+    if (consent !== 'accepted') return;
+    try {
+      startPixel();
+      if (eventName === 'whatsapp_click') {
+        window.oaiq('measure', 'custom', { type: 'custom' }, { custom_event_name: 'whatsapp_click', opt_out: true });
+      } else if (eventName === 'lead_created') {
+        window.oaiq('measure', 'lead_created', { type: 'customer_action' }, { opt_out: true });
+      } else if (eventName === 'page_viewed' && !pageSent) {
+        pageSent = true;
+        window.oaiq('measure', 'page_viewed', { type: 'contents' }, { opt_out: true });
+      }
+    } catch (_) { /* Measurement must never interrupt a contact request. */ }
+  }
+  window.smartCheckMeasure = measure;
+  if (consent === 'accepted') measure('page_viewed');
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest && event.target.closest('a[href]');
+    if (!link) return;
+    try { if (new URL(link.href).hostname === 'wa.me') measure('whatsapp_click'); } catch (_) {}
+  });
+  function setupConsent() {
+    var panel = document.createElement('section');
+    panel.setAttribute('aria-label', 'Preferenze di misurazione pubblicitaria');
+    panel.style.cssText = 'position:fixed;bottom:16px;left:16px;right:16px;max-width:640px;max-height:80vh;overflow:auto;z-index:10000;background:#fff;color:#1a2030;border:1px solid #c4cad6;border-radius:12px;padding:20px;box-shadow:0 4px 24px #0003;font:14px/1.5 system-ui,sans-serif';
+    panel.innerHTML = '<strong>Misurazione degli annunci</strong><p style="margin:10px 0">Con il tuo consenso usiamo cookie e il pixel OpenAI per collegare visite, clic su WhatsApp e richieste inviate agli annunci. OpenAI può ricevere identificatori del browser e dati di contatto trasformati in codici tramite hashing. Il questionario funziona anche se rifiuti. Puoi cambiare scelta da “Preferenze privacy”.</p><details><summary>Dettagli sui cookie</summary><p>__oppref: attribuzione dei clic, fino a 30 giorni. __obref: identificatore del browser, fino a 365 giorni. La scelta viene memorizzata in questo browser.</p><a href="https://openai.com/policies/privacy-policy/" target="_blank" rel="noopener noreferrer">Informativa privacy OpenAI</a></details>';
+    var actions = document.createElement('div');
+    actions.style.cssText = 'display:flex;flex-wrap:wrap;gap:12px;margin-top:14px';
+    function button(label, callback) {
+      var b = document.createElement('button'); b.type = 'button'; b.textContent = label;
+      b.style.cssText = 'padding:10px 16px;border:1px solid #1459a8;border-radius:8px;background:white;color:#1459a8;font:600 14px system-ui;cursor:pointer';
+      b.addEventListener('click', callback); return b;
+    }
+    var preferences = button('Preferenze privacy', function () { panel.hidden = false; reject.focus(); });
+    preferences.style.cssText += ';display:block;margin:16px auto 90px';
+    function choose(value) {
+      consent = value;
+      try { localStorage.setItem(key, value); } catch (_) {}
+      if (value === 'accepted') measure('page_viewed');
+      else if (initialized && window.oaiq) window.oaiq('consent', false);
+      panel.hidden = true;
+      preferences.focus({ preventScroll: true });
+    }
+    var reject = button('Rifiuta', function () { choose('rejected'); });
+    actions.appendChild(reject);
+    actions.appendChild(button('Accetta', function () { choose('accepted'); }));
+    panel.appendChild(actions);
+    panel.hidden = consent === 'accepted' || consent === 'rejected';
+    document.body.appendChild(preferences);
+    document.body.appendChild(panel);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setupConsent);
+  else setupConsent();
+})();
+</script>
+
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Open Innovation — Soluzioni Business</title>
@@ -1050,7 +1125,7 @@ function renderContact(c){
       <div class="fg full"><label>Email *</label><input id="f_e" type="email" placeholder="mario.rossi@email.it" value="${ans.f_e||''}" oninput="ans.f_e=this.value;updBtn()"/></div>
       <div class="fg full"><label>Telefono *</label><input id="f_t" type="tel" placeholder="+39 333 000 0000" value="${ans.f_t||''}" oninput="ans.f_t=this.value;updBtn()"/></div>
     </div>
-    <p class="prv">I tuoi dati saranno trattati nel rispetto del Reg. UE 2016/679 (GDPR) esclusivamente per risponderti con una proposta commerciale. Non verranno ceduti a terzi.</p>
+    <p class="prv">I tuoi dati saranno trattati nel rispetto del Reg. UE 2016/679 (GDPR) esclusivamente per risponderti con una proposta commerciale. Con il tuo consenso, OpenAI riceve dati di misurazione degli annunci come descritto nelle Preferenze privacy.</p>
   </div>`;
   c.appendChild(d);
   document.getElementById('btnNx').textContent='Invia richiesta ✓';
@@ -1204,6 +1279,8 @@ function updBtn(){
    SUBMIT
 ══════════════════════════════════════════════ */
 function submit(){
+  const previousError=document.getElementById('submitError');
+  if(previousError) previousError.remove();
   const btn=document.getElementById('btnNx');
   btn.textContent='Invio in corso...';btn.disabled=true;
   const areeSelezionate=Object.entries(selCards).filter(([k,v])=>v).map(([k])=>k).join(', ');
@@ -1220,9 +1297,21 @@ function submit(){
     method:'POST',
     headers:{'Content-Type':'application/json'},
     body:JSON.stringify(payload)
-  }).then(r=>r.json()).then(data=>{
+  }).then(async r=>{
+    const data=await r.json();
+    if(!r.ok || data.success!==true) throw new Error('Invio non confermato');
+    if(window.smartCheckMeasure) window.smartCheckMeasure('lead_created');
     showTY();
-  }).catch(()=>showTY());
+  }).catch(()=>{
+    btn.textContent='Riprova invio';btn.disabled=false;
+    let error=document.getElementById('submitError');
+    if(!error){
+      error=document.createElement('p');error.id='submitError';error.setAttribute('role','alert');
+      error.style.cssText='color:#b42318;padding:16px;text-align:center';
+      document.getElementById('dynS').appendChild(error);
+    }
+    error.textContent='Non è stato possibile confermare l’invio. Le risposte sono ancora qui: riprova oppure contattaci su WhatsApp.';
+  });
 }
 
 function showTY(){
